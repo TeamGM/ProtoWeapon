@@ -50,3 +50,10 @@ Temporary Items
 .apdisk
 proj.win32/ProtoWeapon.sdf
 proj.win32/ProtoWeapon.VC.opendb
+
+# add Mel
+.db
+.opendb
+.suo
+*.suo
+*.db
