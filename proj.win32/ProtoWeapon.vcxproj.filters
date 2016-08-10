@@ -10,6 +10,30 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameScenes">
+      <UniqueIdentifier>{87b81059-a9d3-4822-8287-3b8fa1145529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\BattleSceneLayer">
+      <UniqueIdentifier>{848e8069-0ea7-4393-93b6-43c602840879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\MainSceneLayer">
+      <UniqueIdentifier>{45c3e63c-cbd8-490d-862b-79aef4935556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\ResultSceneLayer">
+      <UniqueIdentifier>{46b316db-111a-4e81-acdc-13b8827bb48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\BossCharacter">
+      <UniqueIdentifier>{b9a0f478-5ef9-4b2e-88c1-548bfbe74776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\PlayerCharacter">
+      <UniqueIdentifier>{61450b98-fc5f-4b9a-a2be-563d6af549d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\NetworkClasses">
+      <UniqueIdentifier>{32b8772e-dcef-4dfa-89e5-03303cdd3ec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ManagerClasses">
+      <UniqueIdentifier>{841f1b2c-246f-41a9-af73-df4ce04f1943}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,14 +42,23 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MainScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\TitleLayer.cpp">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PcSelectLayer.cpp">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BossSelectLayer.cpp">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BattleScene.cpp">
-      <Filter>src</Filter>
+      <Filter>src\GameScenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScene.cpp">
+      <Filter>src\GameScenes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\ResultScene.cpp">
-      <Filter>src</Filter>
+      <Filter>src\GameScenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,19 +68,31 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\TitleLayer.h">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PcSelectLayer.h">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BossSelectLayer.h">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BattleScene.h">
-      <Filter>src</Filter>
+      <Filter>src\GameScenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScene.h">
+      <Filter>src\GameScenes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ResultScene.h">
-      <Filter>src</Filter>
+      <Filter>src\GameScenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

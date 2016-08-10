@@ -57,3 +57,7 @@ proj.win32/ProtoWeapon.VC.opendb
 .suo
 *.suo
 *.db
+*.cd
+proj.win32/.vs/ProtoWeapon/v14/.suo
+proj.win32/ProtoWeapon.VC.db
+*.db
