@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-class BattleScene : public cocos2d::Layer
+class BattleScene : public cocos2d::LayerColor
 {
 public:
 	static cocos2d::Scene* createScene();

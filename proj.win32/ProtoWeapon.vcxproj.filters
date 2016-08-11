@@ -60,6 +60,9 @@
     <ClCompile Include="..\Classes\ResultScene.cpp">
       <Filter>src\GameScenes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\BackGroundLayer.cpp">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -86,13 +89,13 @@
     <ClInclude Include="..\Classes\ResultScene.h">
       <Filter>src\GameScenes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\BackGroundLayer.h">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

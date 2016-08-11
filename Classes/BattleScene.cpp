@@ -16,8 +16,8 @@ Scene* BattleScene::createScene()
 
 bool BattleScene::init()
 {
-	LayerColor* initBGColor = new LayerColor();
-	if (!initBGColor->initWithColor(Color4B(0, 120, 0, 120)))
+	//LayerColor* initBGColor = new LayerColor();
+	if (!LayerColor::initWithColor(Color4B(0, 120, 0, 120)))
 	{
 		return false;
 	}
