@@ -1,6 +1,4 @@
 #include "MainScene.h"
-#include "TitleLayer.h"
-#include "BackGroundLayer.h"
 
 USING_NS_CC;
 
@@ -11,11 +9,11 @@ Scene* MainScene::createScene()
 
 	// 'layer' is an autorelease object
 	auto layBackGround = BackGroundLayer::create();
-	auto layTitle = TitleLayer::create();
+	auto layMainUI = MainUILayer::create();
 
 	// add layer as a child to scene
 	scene->addChild(layBackGround);
-	scene->addChild(layTitle);
+	scene->addChild(layMainUI);
 
 	// return the scene
 	return scene;
@@ -23,7 +21,6 @@ Scene* MainScene::createScene()
 
 void MainScene::loopMainScene(float dt)
 {
-	//
 }
 
 bool MainScene::init()
@@ -36,4 +33,18 @@ bool MainScene::init()
 	this->schedule(schedule_selector(MainScene::loopMainScene), 1.0);
 
 	return true;
+}
+
+void MainScene::doTitleOn()
+{
+	statMainScene = titleOn;	//enum 0
+}
+
+void MainScene::doPcSelectOn()
+{
+	statMainScene = pcSelectOn;	//enum 1
+}
+void MainScene::doBossSelectOn()
+{
+	statMainScene = bossSelectOn; //enum 2
 }

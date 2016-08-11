@@ -42,15 +42,6 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\TitleLayer.cpp">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\PcSelectLayer.cpp">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BossSelectLayer.cpp">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\BattleScene.cpp">
       <Filter>src\GameScenes</Filter>
     </ClCompile>
@@ -63,6 +54,9 @@
     <ClCompile Include="..\Classes\BackGroundLayer.cpp">
       <Filter>src\GameScenes\MainSceneLayer</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MainUILayer.cpp">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -70,15 +64,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\TitleLayer.h">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\PcSelectLayer.h">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BossSelectLayer.h">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BattleScene.h">
       <Filter>src\GameScenes</Filter>
@@ -90,6 +75,9 @@
       <Filter>src\GameScenes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BackGroundLayer.h">
+      <Filter>src\GameScenes\MainSceneLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainUILayer.h">
       <Filter>src\GameScenes\MainSceneLayer</Filter>
     </ClInclude>
   </ItemGroup>
