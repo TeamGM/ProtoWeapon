@@ -10,6 +10,9 @@ public:
 
 	CREATE_FUNC(MainUILayer);
 
+	void initTitleUI();
+	void initPcSelectUI();
+	void initBossSelectUI();
 	void doStartGameSelect(Ref* pSender);
 };
 

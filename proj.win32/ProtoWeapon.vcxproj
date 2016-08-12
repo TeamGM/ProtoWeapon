@@ -176,6 +176,25 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ResourceCompile Include="game.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\CloseNormal.png" />
+    <Image Include="..\Resources\CloseSelected.png" />
+    <Image Include="..\Resources\img\behimoth.png" />
+    <Image Include="..\Resources\img\CharacterSelectBoard.png" />
+    <Image Include="..\Resources\img\Leviathan.png" />
+    <Image Include="..\Resources\img\mainsceneBG.png" />
+    <Image Include="..\Resources\img\okbutton.png" />
+    <Image Include="..\Resources\img\radragon.png" />
+    <Image Include="..\Resources\img\selectCharacter_Logo.png" />
+    <Image Include="..\Resources\img\selectedFrame.png" />
+    <Image Include="..\Resources\img\selectMonsterFrame.png" />
+    <Image Include="..\Resources\img\selectMonster_Logo.png" />
+    <Image Include="..\Resources\img\swordmanStand.png" />
+    <Image Include="..\Resources\img\TabToStart.png" />
+    <Image Include="..\Resources\img\titleLogo.png" />
+    <Image Include="..\Resources\img\tree.png" />
+    <Image Include="..\Resources\img\xmainsceneBG.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

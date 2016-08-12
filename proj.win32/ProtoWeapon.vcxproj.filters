@@ -34,6 +34,15 @@
     <Filter Include="src\ManagerClasses">
       <UniqueIdentifier>{841f1b2c-246f-41a9-af73-df4ce04f1943}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\BackGround">
+      <UniqueIdentifier>{f954bcd4-9515-400b-923d-046927e17526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\UI">
+      <UniqueIdentifier>{509c5979-b746-44e8-80a2-502eac6cd970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\FakeImg">
+      <UniqueIdentifier>{981c33f0-d4a1-4b76-901c-db87dfc26a9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -85,5 +94,58 @@
     <ResourceCompile Include="game.rc">
       <Filter>resource</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\img\mainsceneBG.png">
+      <Filter>resource\BackGround</Filter>
+    </Image>
+    <Image Include="..\Resources\img\CharacterSelectBoard.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\okbutton.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\titleLogo.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\selectCharacter_Logo.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\swordmanStand.png">
+      <Filter>resource\PlayerCharacter</Filter>
+    </Image>
+    <Image Include="..\Resources\img\tree.png">
+      <Filter>resource\FakeImg</Filter>
+    </Image>
+    <Image Include="..\Resources\CloseNormal.png">
+      <Filter>resource\FakeImg</Filter>
+    </Image>
+    <Image Include="..\Resources\CloseSelected.png">
+      <Filter>resource\FakeImg</Filter>
+    </Image>
+    <Image Include="..\Resources\img\xmainsceneBG.jpg">
+      <Filter>resource\FakeImg</Filter>
+    </Image>
+    <Image Include="..\Resources\img\selectMonster_Logo.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\behimoth.png">
+      <Filter>resource\BossCharacter</Filter>
+    </Image>
+    <Image Include="..\Resources\img\Leviathan.png">
+      <Filter>resource\BossCharacter</Filter>
+    </Image>
+    <Image Include="..\Resources\img\radragon.png">
+      <Filter>resource\BossCharacter</Filter>
+    </Image>
+    <Image Include="..\Resources\img\selectedFrame.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\selectMonsterFrame.png">
+      <Filter>resource\UI</Filter>
+    </Image>
+    <Image Include="..\Resources\img\TabToStart.png">
+      <Filter>resource\UI</Filter>
+    </Image>
   </ItemGroup>
 </Project>

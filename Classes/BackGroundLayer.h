@@ -4,7 +4,7 @@
 
 #include "cocos2d.h"
 
-class BackGroundLayer : public cocos2d::LayerColor
+class BackGroundLayer : public cocos2d::Layer
 {
 public:
 	virtual bool init();

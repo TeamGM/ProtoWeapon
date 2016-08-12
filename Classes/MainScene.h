@@ -32,7 +32,8 @@ public:
 	static cocos2d::Scene* createScene();
 
 	virtual bool init();
-	void loopMainScene(float dt);
+
+	void loadSprites();
 
 	//MainScene 상태변환함수
 	void doTitleOn();
