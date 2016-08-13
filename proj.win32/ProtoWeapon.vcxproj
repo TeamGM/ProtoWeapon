@@ -193,6 +193,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <Image Include="..\Resources\img\TabToStart.png" />
     <Image Include="..\Resources\img\titleLogo.png" />
     <Image Include="..\Resources\img\tree.png" />
+    <Image Include="..\Resources\img\UI_Fire.png" />
+    <Image Include="..\Resources\img\UI_Fire_BG.png" />
+    <Image Include="..\Resources\img\UI_MonsterHP.png" />
+    <Image Include="..\Resources\img\UI_PlayerFace.png" />
+    <Image Include="..\Resources\img\UI_PlayerHP.png" />
+    <Image Include="..\Resources\img\UI_RDFace.png" />
+    <Image Include="..\Resources\img\UI_Stick.png" />
+    <Image Include="..\Resources\img\UI_Stick_BG.png" />
     <Image Include="..\Resources\img\xmainsceneBG.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

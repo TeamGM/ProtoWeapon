@@ -25,6 +25,7 @@ void MainUILayer::initTitleUI()
 	auto okBtnSelected = Sprite::createWithSpriteFrame(okBtnNormal->getSpriteFrame());
 	auto okBtnDisabled = Sprite::createWithSpriteFrame(okBtnNormal->getSpriteFrame());
 	okBtnDisabled->setColor(Color3B(50, 50, 50));
+	okBtnSelected->setScale(1.1);
 
 	auto StartBtn = MenuItemSprite::create(okBtnNormal, okBtnSelected, okBtnDisabled, CC_CALLBACK_0(MainUILayer::initPcSelectUI,this));
 	StartBtn->setPosition(Vec2(0, 0));
@@ -61,72 +62,55 @@ void MainUILayer::initPcSelectUI()
 	auto swordmanNormal = Sprite::create("img/swordmanStand.png");
 	auto swordmanSelected = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto swordmanDisabled = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
-	swordmanNormal->setAnchorPoint(Vec2(0, 0));
-	swordmanNormal->setScale(0.5f);
-	//swordmanNormal->setPosition(Vec2(50, 50));
-	//swordmanSelected->setScale(0.7f);
-	//swordmanSelected->setAnchorPoint(Vec2(0.5, 0.5));
-	//swordmanDisabled->setScale(0.5f);
-	//swordmanDisabled->setAnchorPoint(Vec2(0.5, 0.5));
+	auto swordmanSelectedFrame = Sprite::create("img/selectedFrame.png");
+	swordmanSelected->setAnchorPoint(Vec2(0, 0));
+	swordmanSelected->setScale(0.6);
+	swordmanSelectedFrame->setScale(2.0);
+	swordmanSelectedFrame->addChild(swordmanSelected,0);
 	//아쳐
 	auto archerNormal = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto archerSelected = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto archerDisabled = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
-	//archerNormal->setScale(0.5f);
-	//archerNormal->setAnchorPoint(Vec2(0.5, 0.5));
-	//archerSelected->setScale(0.7f);
-	//archerSelected->setAnchorPoint(Vec2(0.5, 0.5));
-	//archerDisabled->setScale(0.5f);
-	//archerDisabled->setAnchorPoint(Vec2(0.5, 0.5));
+	auto archerSelectedFrame = Sprite::createWithSpriteFrame(swordmanSelectedFrame->getSpriteFrame());
+	archerSelected->setAnchorPoint(Vec2(0, 0));
+	archerSelected->setScale(0.6);
+	archerSelectedFrame->setScale(2.0);
+	archerSelectedFrame->addChild(archerSelected, 0);
 	//위자드
 	auto wizardNormal = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto wizardSelected = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto wizardDisabled = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
-	//wizardNormal->setScale(0.5f);
-	//wizardNormal->setAnchorPoint(Vec2(0.5, 0.5));
-	//wizardSelected->setScale(0.7f);
-	//wizardSelected->setAnchorPoint(Vec2(0.5, 0.5));
-	//wizardDisabled->setScale(0.5f);
-	//wizardDisabled->setAnchorPoint(Vec2(0.5, 0.5));
+	auto wizardSelectedFrame = Sprite::createWithSpriteFrame(swordmanSelectedFrame->getSpriteFrame());
+	wizardSelected->setAnchorPoint(Vec2(0, 0));
+	wizardSelected->setScale(0.6);
+	wizardSelectedFrame->setScale(2.0);
+	wizardSelectedFrame->addChild(wizardSelected, 0);
 
-	auto pcJob01 = MenuItemSprite::create(swordmanNormal, swordmanSelected, swordmanDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	auto pcJob02 = MenuItemSprite::create(archerNormal, archerSelected, archerDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	auto pcJob03 = MenuItemSprite::create(wizardNormal, wizardSelected, wizardDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
+	auto pcJob01 = MenuItemSprite::create(swordmanNormal, swordmanSelectedFrame, swordmanDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
+	auto pcJob02 = MenuItemSprite::create(archerNormal, archerSelectedFrame, archerDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
+	auto pcJob03 = MenuItemSprite::create(wizardNormal, wizardSelectedFrame, wizardDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
+
+	pcJob01->setScale(0.5f);
+	pcJob02->setScale(0.5f);
+	pcJob03->setScale(0.5f);
 	
-	//메뉴아이템 클래스때문에 삽질코드
-	//auto pcJob01 = MenuItemFont::create("Archer", CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	//auto pcJob02 = MenuItemFont::create("Warrior", CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	//auto pcJob03 = MenuItemFont::create("Wizard", CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	
-	//pcJob01->setColor(Color3B(255, 255, 255));
-	//pcJob02->setColor(Color3B(255, 255, 255));
-	//pcJob03->setColor(Color3B(255, 255, 255));
-	
-	pcJob01->setPosition(Vec2(120, 180));
+	pcJob01->setPosition(Vec2(120+50, 180));
 	pcJob02->setPosition(Vec2(320, 180));
-	pcJob03->setPosition(Vec2(520, 180));
+	pcJob03->setPosition(Vec2(520-50, 180));
 
-	pcJob01->setAnchorPoint(Vec2(0.25, 0.25));
-	pcJob02->setAnchorPoint(Vec2(0.25, 0.25));
-	pcJob03->setAnchorPoint(Vec2(0.25, 0.25));
-
-	auto pMenu01 = Menu::create(pcJob01, NULL);
-	auto pMenu02 = Menu::create(pcJob02, NULL);
-	auto pMenu03 = Menu::create(pcJob03, NULL);
+	auto pMenu01 = Menu::create(pcJob01, pcJob02, pcJob03, NULL);
 
 	pMenu01->setPosition(Vec2(0, 0));
-	pMenu02->setPosition(Vec2(0, 0));
-	pMenu03->setPosition(Vec2(0, 0));
+	pMenu01->setName("pcSelectObj");
 
 	this->addChild(pMenu01,3);
-	this->addChild(pMenu02,2);
-	this->addChild(pMenu03,2);
 }
 
 void MainUILayer::initBossSelectUI()
 {
 	//selectPcLogo 찾아서 제거
-	//this->removeChildByName("pcLogo");
+	this->removeChildByName("pcLogo");
+	this->removeChildByName("pcSelectObj");
 
 	//셀렉트로고
 	auto selecBossLogo = Sprite::create("img/selectMonster_Logo.png");
@@ -143,7 +127,7 @@ void MainUILayer::initBossSelectUI()
 	auto pMenu = Menu::create(item1, NULL);
 	pMenu->setPosition(Vec2(0, 0));
 
-	this->addChild(pMenu);
+	this->addChild(pMenu, 2);
 }
 
 void MainUILayer::doStartGameSelect(Ref* pSender)
