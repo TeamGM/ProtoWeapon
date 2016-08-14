@@ -38,6 +38,5 @@ bool ResultScene::init()
 
 void ResultScene::resultEnd(Ref* pSender)
 {
-	auto pScene = MainScene::createScene();
-	Director::getInstance()->replaceScene(pScene);
+	GameManager::getInstance()->doSoloResultEnd(pSender);
 }

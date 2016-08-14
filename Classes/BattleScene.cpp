@@ -38,6 +38,5 @@ bool BattleScene::init()
 
 void BattleScene::batlleEnd(Ref* pSender)
 {
-	auto pScene = ResultScene::createScene();
-	Director::getInstance()->replaceScene(pScene);
+	GameManager::getInstance()->doSoloBattleEnd(pSender);
 }
