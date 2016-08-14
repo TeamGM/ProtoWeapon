@@ -35,7 +35,6 @@ void MainUILayer::initTitleUI()
 	pMenu->setName("startBtn");
 
 	this->addChild(pMenu,1);
-	//this->addChild(spr);
 }
 
 void MainUILayer::initPcSelectUI()
@@ -171,6 +170,5 @@ void MainUILayer::initBossSelectUI()
 
 void MainUILayer::doStartGameSelect(Ref* pSender)
 {
-	auto pScene = BattleScene::createScene();
-	Director::getInstance()->replaceScene(pScene);
+	GameManager::getInstance()->doSoloStartBattleScene(pSender);
 }

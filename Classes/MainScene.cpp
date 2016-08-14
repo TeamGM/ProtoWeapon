@@ -64,17 +64,3 @@ void MainScene::loadSprites()
 
 	
 }
-
-void MainScene::doTitleOn()
-{
-	statMainScene = titleOn;	//enum 0
-}
-
-void MainScene::doPcSelectOn()
-{
-	statMainScene = pcSelectOn;	//enum 1
-}
-void MainScene::doBossSelectOn()
-{
-	statMainScene = bossSelectOn; //enum 2
-}

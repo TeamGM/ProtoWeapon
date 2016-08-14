@@ -2,6 +2,7 @@
 #define __MAIN_UI_LAYER_H__
 
 #include "cocos2d.h"
+#include "GameManager.h"
 
 class MainUILayer : public cocos2d::Layer
 {
