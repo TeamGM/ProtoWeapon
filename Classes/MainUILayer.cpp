@@ -164,6 +164,19 @@ void MainUILayer::initBossSelectUI()
 
 	this->addChild(pSelectBossObj, 2);
 }
+
+//********************************
+//데이터 세팅함수
+//********************************
+void MainUILayer::setSelectedJob(typeGameData::ENUMPCJOB pcJob)
+{
+	//
+}
+void MainUILayer::setSelectedBoss(/*enumGameData::BOSS boss*/)
+{
+	//
+}
+
 //****************************
 /* 연출 함수 따로 만들 것 */
 //****************************

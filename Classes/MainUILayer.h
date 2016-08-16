@@ -2,6 +2,7 @@
 #define __MAIN_UI_LAYER_H__
 
 #include "cocos2d.h"
+#include "TypeGameData.h"
 #include "GameManager.h"
 
 class MainUILayer : public cocos2d::Layer
@@ -14,6 +15,12 @@ public:
 	void initTitleUI();
 	void initPcSelectUI();
 	void initBossSelectUI();
+
+	void setSelectedJob(typeGameData::ENUMPCJOB pcJob);
+	void setSelectedBoss();
+
+	typeGameData::ENUMBOSS boss;
+
 	void doStartGameSelect(Ref* pSender);
 };
 

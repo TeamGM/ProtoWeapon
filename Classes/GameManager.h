@@ -3,25 +3,8 @@
 #include "BattleScene.h"
 #include "MainScene.h"
 #include "ResultScene.h"
+#include "TypeGameData.h"
 
-typedef enum {
-	WARRIOR,	//0
-	WIZARD,		//1
-	ARCHER,		//2
-	UNkNOWNJOB	//3
-} SELECTPCJOB;
-
-typedef enum {
-	BEHIMOTH,	//0
-	LEVIATHAN,	//1
-	RADRAGON,	//2
-	UNKNOWNBOSS	//3
-} SELECTBOSS;
-
-typedef struct selectData {
-	int pcJobNum = UNkNOWNJOB;
-	int bossNum= UNKNOWNBOSS;
-} SELECTDATA;
 
 class GameManager :public cocos2d::Object
 {
@@ -31,8 +14,8 @@ public:
 	virtual ~GameManager();
 	bool init();
 
-	void setSoloPcJobNum(SELECTPCJOB pcJobN);
-	void setSoloBossNum(SELECTBOSS bossN);
+	void setSoloPcJobNum(typeGameData::ENUMPCJOB pcJobN);
+	void setSoloBossNum(typeGameData::ENUMBOSS bossN);
 	int getSoloPcJobNum();
 	int getSoloBossNum();
 
@@ -50,7 +33,7 @@ public:
 private:
 	//외부에서 임의접근불가
 	//@(get/set)Solo(PcJob/Boss)Num 으로 접근가능
-	SELECTDATA soloSelecDatas;
+	typeGameData::SELECTEDDATA soloSelecDatas;
 	
 	//네트워크용 임시 플레이어 수에 따라 조정
 	//SELECTDATA netSelectDatas;

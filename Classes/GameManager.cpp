@@ -19,12 +19,12 @@ GameManager* GameManager::getInstance()
 //**** Solo플레이 함수 목록
 //*********************
 // 선택한 플레이어직업 게임매니저에 Set
-void GameManager::setSoloPcJobNum(SELECTPCJOB pcJobN)
+void GameManager::setSoloPcJobNum(typeGameData::ENUMPCJOB pcJobN)
 {
 	soloSelecDatas.pcJobNum = pcJobN;
 }
 // 선택한 보스캐릭터 게임매니저에 Set
-void GameManager::setSoloBossNum(SELECTBOSS bossN)
+void GameManager::setSoloBossNum(typeGameData::ENUMBOSS bossN)
 {
 	soloSelecDatas.bossNum = bossN;
 }

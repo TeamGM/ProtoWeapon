@@ -104,6 +104,9 @@
     <ClInclude Include="..\Classes\GameManager.h">
       <Filter>src\ManagerClasses</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\TypeGameData.h">
+      <Filter>src\ManagerClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
