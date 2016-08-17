@@ -31,12 +31,24 @@ bool BattleScene::init()
 	pMenu->setPosition(Point(240, 50));
 
 	this->addChild(pMenu);
-	//임시메뉴코드 끝
+	//임시메뉴코드 끝s
+	
+	battleManager = new BattleManager();
+	this->scheduleUpdate();
 
 	return true;
+}
+
+void BattleScene::update(float dt)
+{
+	battleManager->Update();
 }
 
 void BattleScene::batlleEnd(Ref* pSender)
 {
 	GameManager::getInstance()->doSoloBattleEnd(pSender);
+}
+
+void BattleScene::Draw()
+{
 }

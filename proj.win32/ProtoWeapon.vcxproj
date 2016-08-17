@@ -146,22 +146,36 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BackGroundLayer.cpp" />
+    <ClCompile Include="..\Classes\BattleManager.cpp" />
     <ClCompile Include="..\Classes\BattleScene.cpp" />
+    <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\FieldManager.cpp" />
     <ClCompile Include="..\Classes\GameManager.cpp" />
     <ClCompile Include="..\Classes\MainScene.cpp" />
+    <ClCompile Include="..\Classes\Monster.cpp" />
     <ClCompile Include="..\Classes\ResultScene.cpp" />
     <ClCompile Include="..\Classes\MainUILayer.cpp" />
+    <ClCompile Include="..\Classes\UIFire.cpp" />
+    <ClCompile Include="..\Classes\UIManager.cpp" />
+    <ClCompile Include="..\Classes\UIStick.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\BackGroundLayer.h" />
+    <ClInclude Include="..\Classes\BattleManager.h" />
     <ClInclude Include="..\Classes\BattleScene.h" />
+    <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\FieldManager.h" />
     <ClInclude Include="..\Classes\GameManager.h" />
     <ClInclude Include="..\Classes\MainScene.h" />
+    <ClInclude Include="..\Classes\Monster.h" />
     <ClInclude Include="..\Classes\ResultScene.h" />
     <ClInclude Include="..\Classes\MainUILayer.h" />
     <ClInclude Include="..\Classes\TypeGameData.h" />
+    <ClInclude Include="..\Classes\UIFire.h" />
+    <ClInclude Include="..\Classes\UIManager.h" />
+    <ClInclude Include="..\Classes\UIStick.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

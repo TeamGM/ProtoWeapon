@@ -52,6 +52,18 @@
     <Filter Include="resource\UI\BattleScene">
       <UniqueIdentifier>{0cc78799-2e84-4d5d-8b3c-b3e6aef6ef83}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\BattleManager">
+      <UniqueIdentifier>{759c2fbd-920c-459d-bbb8-8960f12a87b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BattleManager\UIManager">
+      <UniqueIdentifier>{7855e0c7-5e44-46b9-9417-2f336442f136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BattleManager\FieldManager">
+      <UniqueIdentifier>{0ec57c92-88c3-4ba5-b123-f332c6ac8a66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\BattleManager\Characters">
+      <UniqueIdentifier>{485414b4-2a5f-4f0e-b2da-1c32b9a14d84}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,9 +71,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\BattleScene.cpp">
-      <Filter>src\GameScenes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainScene.cpp">
       <Filter>src\GameScenes</Filter>
@@ -78,6 +87,30 @@
     <ClCompile Include="..\Classes\GameManager.cpp">
       <Filter>src\ManagerClasses</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\BattleManager.cpp">
+      <Filter>src\BattleManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FieldManager.cpp">
+      <Filter>src\BattleManager\FieldManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIManager.cpp">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BattleScene.cpp">
+      <Filter>src\GameScenes\BattleSceneLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIStick.cpp">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIFire.cpp">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Monster.cpp">
+      <Filter>src\BattleManager\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>src\BattleManager\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -85,9 +118,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BattleScene.h">
-      <Filter>src\GameScenes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainScene.h">
       <Filter>src\GameScenes</Filter>
@@ -106,6 +136,30 @@
     </ClInclude>
     <ClInclude Include="..\Classes\TypeGameData.h">
       <Filter>src\ManagerClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BattleManager.h">
+      <Filter>src\BattleManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIFire.h">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIStick.h">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIManager.h">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FieldManager.h">
+      <Filter>src\BattleManager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BattleScene.h">
+      <Filter>src\GameScenes\BattleSceneLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>src\BattleManager\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Monster.h">
+      <Filter>src\BattleManager\Characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
