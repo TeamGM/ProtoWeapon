@@ -10,6 +10,7 @@ public:
 	~BattleManager();
 	void Update();
 	UIManager * GetUIManager();
+	FieldManager * GetFieldManager();
 	void KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode);
 	void KeyUpProcess(cocos2d::EventKeyboard::KeyCode keyCode);
 private:

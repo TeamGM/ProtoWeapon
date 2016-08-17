@@ -5,10 +5,11 @@
 #include "GameManager.h"
 #include "BattleManager.h"
 #include "UILayer.h"
+#include "FieldLayer.h"
 
 USING_NS_CC;
 
-class BattleScene : public cocos2d::LayerColor
+class BattleScene : public cocos2d::Layer
 {
 public:
 	static cocos2d::Scene* createScene();
@@ -20,6 +21,8 @@ public:
 
 	void batlleEnd(Ref* pSender);
 	UILayer * uiLayer;
+	FieldLayer * fieldLayer;
+
 private:
 	BattleManager * battleManager;
 	void InitKeyboardListener();

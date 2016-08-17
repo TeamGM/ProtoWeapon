@@ -13,16 +13,22 @@ Scene* BattleScene::createScene()
 bool BattleScene::init()
 {
 	//LayerColor* initBGColor = new LayerColor();
-	if (!LayerColor::initWithColor(Color4B(0, 120, 0, 120)))
+	if (!Layer::init())
 	{
 		return false;
 	}
 
 	battleManager = new BattleManager();
+
+	fieldLayer = FieldLayer::create();
+	this->addChild(fieldLayer);
+
 	uiLayer = UILayer::create();
 	uiLayer->init(battleManager->GetUIManager());
 	this->addChild(uiLayer);
 	this->scheduleUpdate();
+
+
 	InitKeyboardListener();
 	return true;
 }
@@ -31,6 +37,7 @@ void BattleScene::update(float dt)
 {
 	battleManager->Update();
 	uiLayer->Draw(battleManager->GetUIManager());
+	fieldLayer->Draw(battleManager->GetFieldManager());
 }
 
 void BattleScene::batlleEnd(Ref* pSender)

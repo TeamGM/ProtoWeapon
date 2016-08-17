@@ -37,7 +37,7 @@ cocos2d::Vec2 UIStick::GetCurrentPosition()
 
 cocos2d::Vec2 UIStick::GetDirection()
 {
-	return cocos2d::Vec2(currentPositionX - startPositionX, currentPositionY - startPositionY);
+	return cocos2d::Vec2( (int)(key_d + key_a * -1) , (int)(key_w + key_s * -1));
 }
 
 bool UIStick::GetIsPressing()

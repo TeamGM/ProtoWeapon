@@ -15,14 +15,18 @@ BattleManager::~BattleManager() {
 void BattleManager::Update()
 {
 	uiManager->Update(100, 100); //юс╫ц 100 100
-	fieldManager->Update();
-	player->Update();
+	fieldManager->Update(uiManager->GetUIStick()->GetDirection().x, uiManager->GetUIStick()->GetDirection().y );
 	monster->Update();
 }
 
 UIManager * BattleManager::GetUIManager()
 {
 	return uiManager;
+}
+
+FieldManager * BattleManager::GetFieldManager()
+{
+	return fieldManager;
 }
 
 void BattleManager::KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode)
