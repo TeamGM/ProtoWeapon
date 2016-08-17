@@ -12,7 +12,7 @@ Player::~Player()
 void Player::Init()
 {
 	positionX = 640;
-	positionY = 320;
+	positionY = 250;
 	directionX = 0;
 	directionY = 0;
 	moveSpeed = 3;

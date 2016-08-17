@@ -14,4 +14,5 @@ public:
 private:
 	cocos2d::Sprite * map;
 	cocos2d::Sprite * player;
+	cocos2d::Sprite * boss;
 };
