@@ -13,12 +13,6 @@
     <Filter Include="src\GameScenes">
       <UniqueIdentifier>{87b81059-a9d3-4822-8287-3b8fa1145529}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameScenes\BattleSceneLayer">
-      <UniqueIdentifier>{848e8069-0ea7-4393-93b6-43c602840879}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\GameScenes\MainSceneLayer">
-      <UniqueIdentifier>{45c3e63c-cbd8-490d-862b-79aef4935556}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\GameScenes\ResultSceneLayer">
       <UniqueIdentifier>{46b316db-111a-4e81-acdc-13b8827bb48d}</UniqueIdentifier>
     </Filter>
@@ -52,17 +46,32 @@
     <Filter Include="resource\UI\BattleScene">
       <UniqueIdentifier>{0cc78799-2e84-4d5d-8b3c-b3e6aef6ef83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BattleManager">
+    <Filter Include="src\ManagerClasses\BattleManager">
       <UniqueIdentifier>{759c2fbd-920c-459d-bbb8-8960f12a87b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BattleManager\UIManager">
+    <Filter Include="src\ManagerClasses\BattleManager\UIManager">
       <UniqueIdentifier>{7855e0c7-5e44-46b9-9417-2f336442f136}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BattleManager\FieldManager">
+    <Filter Include="src\ManagerClasses\BattleManager\FieldManager">
       <UniqueIdentifier>{0ec57c92-88c3-4ba5-b123-f332c6ac8a66}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\BattleManager\Characters">
+    <Filter Include="src\ManagerClasses\BattleManager\Characters">
       <UniqueIdentifier>{485414b4-2a5f-4f0e-b2da-1c32b9a14d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\MainScene">
+      <UniqueIdentifier>{ff5bf2d3-cbe3-48cf-ae72-8206938a6e63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\MainScene\MainSceneLayer">
+      <UniqueIdentifier>{45c3e63c-cbd8-490d-862b-79aef4935556}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\ResultScene">
+      <UniqueIdentifier>{1978edec-6be0-4f75-a65e-0583be42cacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\BattleScene">
+      <UniqueIdentifier>{848e8069-0ea7-4393-93b6-43c602840879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameScenes\BattleScene\BattleSceneLayers">
+      <UniqueIdentifier>{00e34368-b947-4f80-94fe-266b9fcadac8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,44 +81,47 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\MainScene.cpp">
-      <Filter>src\GameScenes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\ResultScene.cpp">
-      <Filter>src\GameScenes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\BackGroundLayer.cpp">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
+      <Filter>src\GameScenes\MainScene\MainSceneLayer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainUILayer.cpp">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
+      <Filter>src\GameScenes\MainScene\MainSceneLayer</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameManager.cpp">
       <Filter>src\ManagerClasses</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BattleManager.cpp">
-      <Filter>src\BattleManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\FieldManager.cpp">
-      <Filter>src\BattleManager\FieldManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\FieldManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIManager.cpp">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\BattleScene.cpp">
-      <Filter>src\GameScenes\BattleSceneLayer</Filter>
+      <Filter>src\GameScenes\BattleScene</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIStick.cpp">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\UIFire.cpp">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Monster.cpp">
-      <Filter>src\BattleManager\Characters</Filter>
+      <Filter>src\ManagerClasses\BattleManager\Characters</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Player.cpp">
-      <Filter>src\BattleManager\Characters</Filter>
+      <Filter>src\ManagerClasses\BattleManager\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScene.cpp">
+      <Filter>src\GameScenes\MainScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ResultScene.cpp">
+      <Filter>src\GameScenes\ResultScene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UILayer.cpp">
+      <Filter>src\GameScenes\BattleScene\BattleSceneLayers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,17 +131,11 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\MainScene.h">
-      <Filter>src\GameScenes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\ResultScene.h">
-      <Filter>src\GameScenes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\BackGroundLayer.h">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
+      <Filter>src\GameScenes\MainScene\MainSceneLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainUILayer.h">
-      <Filter>src\GameScenes\MainSceneLayer</Filter>
+      <Filter>src\GameScenes\MainScene\MainSceneLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameManager.h">
       <Filter>src\ManagerClasses</Filter>
@@ -138,28 +144,37 @@
       <Filter>src\ManagerClasses</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BattleManager.h">
-      <Filter>src\BattleManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UIFire.h">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UIStick.h">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\UIManager.h">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FieldManager.h">
-      <Filter>src\BattleManager\UIManager</Filter>
+      <Filter>src\ManagerClasses\BattleManager\UIManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\BattleScene.h">
-      <Filter>src\GameScenes\BattleSceneLayer</Filter>
+      <Filter>src\GameScenes\BattleScene</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Player.h">
-      <Filter>src\BattleManager\Characters</Filter>
+      <Filter>src\ManagerClasses\BattleManager\Characters</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Monster.h">
-      <Filter>src\BattleManager\Characters</Filter>
+      <Filter>src\ManagerClasses\BattleManager\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScene.h">
+      <Filter>src\GameScenes\MainScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ResultScene.h">
+      <Filter>src\GameScenes\ResultScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UILayer.h">
+      <Filter>src\GameScenes\BattleScene\BattleSceneLayers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

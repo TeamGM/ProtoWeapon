@@ -9,6 +9,7 @@ public:
 	BattleManager();
 	~BattleManager();
 	void Update();
+	UIManager * GetUIManager();
 private:
 	void init();
 	

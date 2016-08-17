@@ -1,16 +1,12 @@
 #include "BattleScene.h"
-#include "ResultScene.h"
 
 USING_NS_CC;
 
 Scene* BattleScene::createScene()
 {
 	auto scene = Scene::create();
-
 	auto layer = BattleScene::create();
-
 	scene->addChild(layer);
-
 	return scene;
 }
 
@@ -22,33 +18,22 @@ bool BattleScene::init()
 		return false;
 	}
 
-	//임시메뉴코드 시작
-	auto item1 = MenuItemFont::create("Close BattleScene", CC_CALLBACK_1(BattleScene::batlleEnd, this));
-	item1->setColor(Color3B(255, 255, 255));
 
-	auto pMenu = Menu::create(item1, NULL);
-
-	pMenu->setPosition(Point(240, 50));
-
-	this->addChild(pMenu);
-	//임시메뉴코드 끝s
-	
 	battleManager = new BattleManager();
+	uiLayer = UILayer::create();
+	uiLayer->init(battleManager->GetUIManager());
+	this->addChild(uiLayer);
 	this->scheduleUpdate();
-
 	return true;
 }
 
 void BattleScene::update(float dt)
 {
 	battleManager->Update();
+	uiLayer->Draw(battleManager->GetUIManager());
 }
 
 void BattleScene::batlleEnd(Ref* pSender)
 {
 	GameManager::getInstance()->doSoloBattleEnd(pSender);
-}
-
-void BattleScene::Draw()
-{
 }

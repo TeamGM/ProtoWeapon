@@ -14,8 +14,13 @@ BattleManager::~BattleManager() {
 }
 void BattleManager::Update()
 {
-	uiManager->Update();
+	uiManager->Update(100, 100); //юс╫ц 100 100
 	fieldManager->Update();
 	player->Update();
 	monster->Update();
+}
+
+UIManager * BattleManager::GetUIManager()
+{
+	return uiManager;
 }

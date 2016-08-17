@@ -156,6 +156,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ResultScene.cpp" />
     <ClCompile Include="..\Classes\MainUILayer.cpp" />
     <ClCompile Include="..\Classes\UIFire.cpp" />
+    <ClCompile Include="..\Classes\UILayer.cpp" />
     <ClCompile Include="..\Classes\UIManager.cpp" />
     <ClCompile Include="..\Classes\UIStick.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,6 +175,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MainUILayer.h" />
     <ClInclude Include="..\Classes\TypeGameData.h" />
     <ClInclude Include="..\Classes\UIFire.h" />
+    <ClInclude Include="..\Classes\UILayer.h" />
     <ClInclude Include="..\Classes\UIManager.h" />
     <ClInclude Include="..\Classes\UIStick.h" />
     <ClInclude Include="main.h" />

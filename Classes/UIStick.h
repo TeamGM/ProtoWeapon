@@ -7,10 +7,11 @@ public:
 	void Update();
 	void SetFirstPositionXY(int x, int y);
 	void SetCurrentPositionXY(int x, int y);
-	
+	cocos2d::Vec2 GetDirection();
+
 private:
-	int FirstPositionX;
-	int FirstPositionY;
+	int firstPositionX;
+	int firstPositionY;
 	int currentPositionX;
 	int currentPositionY;
 	bool locked;

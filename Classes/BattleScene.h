@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "GameManager.h"
 #include "BattleManager.h"
+#include "UILayer.h"
 
 class BattleScene : public cocos2d::LayerColor
 {
@@ -16,9 +17,10 @@ public:
 	CREATE_FUNC(BattleScene);
 
 	void batlleEnd(Ref* pSender);
+	UILayer * uiLayer;
 private:
 	BattleManager * battleManager;
-	void Draw();
+	void UpdateLayers();
 };
 
 #endif // __BATTLE_SCNEN_H__
