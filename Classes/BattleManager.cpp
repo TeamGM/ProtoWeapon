@@ -24,3 +24,12 @@ UIManager * BattleManager::GetUIManager()
 {
 	return uiManager;
 }
+
+void BattleManager::KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	uiManager->KeyDownProcess(keyCode);
+}
+void BattleManager::KeyUpProcess(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	uiManager->KeyUpProcess(keyCode);
+}

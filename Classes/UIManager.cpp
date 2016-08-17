@@ -21,6 +21,16 @@ int UIManager::GetPlayerHPRatio()
 	return playerHPRatio;
 }
 
+void UIManager::KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	stick->KeyDownProcess(keyCode);
+	fire->KeyDownProcess(keyCode);
+}
+void UIManager::KeyUpProcess(cocos2d::EventKeyboard::KeyCode keyCode)
+{
+	stick->KeyUpProcess(keyCode);
+	fire->KeyUpProcess(keyCode);
+}
 UIStick* UIManager::GetUIStick() {
 	return stick;
 }

@@ -36,6 +36,25 @@ bool UILayer::init(UIManager * uiManager)
 	bossHP->setAnchorPoint(Vec2(0, 0));
 	this->addChild(bossHP);
 
+	stickBG = Sprite::create("img/UI_Stick_BG.png");
+	stickBG->setAnchorPoint(Vec2(0.5, 0.5));
+	stickBG->setPosition(Vec2(100, 100));
+	this->addChild(stickBG);
+
+	stickPoint = Sprite::create("img/UI_Stick.png");
+	stickPoint->setAnchorPoint(Vec2(0.5, 0.5));
+	stickPoint->setPosition(Vec2(100, 100));
+	this->addChild(stickPoint);
+	
+	fireBG = Sprite::create("img/UI_Fire_BG.png");
+	fireBG->setAnchorPoint(Vec2(0.5, 0.5));
+	fireBG->setPosition(Vec2(540, 100));
+	firePoint = Sprite::create("img/UI_Fire.png");
+	firePoint->setAnchorPoint(Vec2(0.5, 0.5));
+	firePoint->setPosition(Vec2(540, 100));
+	this->addChild(fireBG);
+	this->addChild(firePoint);
+
 	return true;
 }
 
@@ -57,6 +76,16 @@ void UILayer::DrawPlayerHP(int playerHPRatio)
 
 void UILayer::DrawStick(UIStick * stick)
 {
+	stickPoint->setPosition(stick->GetCurrentPosition());
+	if (stick->GetIsPressing() == false) {
+		stickBG->setVisible(false);
+		stickPoint->setVisible(false);
+	}
+	else {
+		stickBG->setVisible(true);
+		stickPoint->setVisible(true);
+	}
+	
 }
 
 void UILayer::DrawFire(UIFire * fire)

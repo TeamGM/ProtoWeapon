@@ -6,6 +6,8 @@
 #include "BattleManager.h"
 #include "UILayer.h"
 
+USING_NS_CC;
+
 class BattleScene : public cocos2d::LayerColor
 {
 public:
@@ -20,7 +22,9 @@ public:
 	UILayer * uiLayer;
 private:
 	BattleManager * battleManager;
-	void UpdateLayers();
+	void InitKeyboardListener();
+	void onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event);
+	void onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event);
 };
 
 #endif // __BATTLE_SCNEN_H__

@@ -18,12 +18,12 @@ bool BattleScene::init()
 		return false;
 	}
 
-
 	battleManager = new BattleManager();
 	uiLayer = UILayer::create();
 	uiLayer->init(battleManager->GetUIManager());
 	this->addChild(uiLayer);
 	this->scheduleUpdate();
+	InitKeyboardListener();
 	return true;
 }
 
@@ -37,3 +37,24 @@ void BattleScene::batlleEnd(Ref* pSender)
 {
 	GameManager::getInstance()->doSoloBattleEnd(pSender);
 }
+
+void BattleScene::InitKeyboardListener()
+{
+	
+	auto listener = EventListenerKeyboard::create();
+	listener->onKeyPressed = CC_CALLBACK_2(BattleScene::onKeyPressed, this);
+	listener->onKeyReleased = CC_CALLBACK_2(BattleScene::onKeyReleased, this);
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+
+	// Implementation of the keyboard event callback function prototype
+}
+void BattleScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
+{
+	battleManager->KeyDownProcess(keyCode);
+}
+void BattleScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
+{
+	battleManager->KeyUpProcess(keyCode);
+}
+

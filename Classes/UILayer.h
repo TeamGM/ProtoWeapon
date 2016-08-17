@@ -16,6 +16,10 @@ private:
 	cocos2d::Sprite * playerPicture;
 	cocos2d::Sprite * bossHP;
 	cocos2d::Sprite * playerHP;
+	cocos2d::Sprite * stickBG;
+	cocos2d::Sprite * stickPoint;
+	cocos2d::Sprite * fireBG;
+	cocos2d::Sprite * firePoint;
 
 	void DrawBossHP(int bossHPRatio);
 	void DrawPlayerHP(int playerHPRatio);

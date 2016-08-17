@@ -13,6 +13,8 @@ public:
 	UIFire * GetUIFire();
 	int GetBossHPRatio();
 	int GetPlayerHPRatio();
+	void KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode);
+	void KeyUpProcess(cocos2d::EventKeyboard::KeyCode keyCode);
 	struct UIPreset {
 		int bossPictureSize;
 		int bossPicturePositionX;
