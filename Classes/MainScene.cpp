@@ -10,12 +10,10 @@ Scene* MainScene::createScene()
 	auto layBackGround = BackGroundLayer::create();
 	auto layMainUI = MainUILayer::create();
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Neo_Space.mp3");
 	// add layer as a child to scene
 	scene->addChild(layBackGround);
 	scene->addChild(layMainUI);
-
-	CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.3f);
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Neo_Space.mp3");
 
 	// return the scene
 	return scene;
@@ -27,9 +25,6 @@ bool MainScene::init()
 	{
 		return false;
 	}
-
-	CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.3f);
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Neo_Space.mp3");
 	//this->schedule(schedule_selector(MainScene::loopMainScene), 1.0);
 
 	return true;

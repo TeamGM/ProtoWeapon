@@ -225,6 +225,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <Image Include="..\Resources\img\xmainsceneBG.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="..\Resources\soundBG\Another_time.mp3" />
+    <Media Include="..\Resources\soundBG\Destruction.mp3" />
     <Media Include="..\Resources\soundBG\Neo_Space.mp3" />
     <Media Include="..\Resources\soundEffect\SEmenuSelect.mp3" />
   </ItemGroup>

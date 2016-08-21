@@ -41,18 +41,23 @@ int GameManager::getSoloBossNum()
 // ¹èÆ²¾À ½ÃÀÛ
 void GameManager::doSoloStartBattleScene(Ref* pSender)
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Destruction.mp3");
 	auto pScene = BattleScene::createScene();
 	Director::getInstance()->replaceScene(pScene);
 }
 // ¹èÆ²¾À Á¾·á
 void GameManager::doSoloBattleEnd(Ref* pSender)
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Another_time.mp3");
 	auto pScene = ResultScene::createScene();
 	Director::getInstance()->replaceScene(pScene);
 }
 // °á°ú¾À Á¾·á
 void GameManager::doSoloResultEnd(Ref* pSender)
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	auto pScene = MainScene::createScene();
 	Director::getInstance()->replaceScene(pScene);
 }
@@ -68,6 +73,8 @@ bool GameManager::init()
 {
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("soundEffect/SEmenuSelect.mp3");
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("soundBG/Neo_Space.mp3");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("soundBG/Destruction.mp3");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("soundBG/Another_time.mp3");
 
 	return true;
 }

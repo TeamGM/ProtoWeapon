@@ -278,5 +278,11 @@
     <Media Include="..\Resources\soundBG\Neo_Space.mp3">
       <Filter>resource\SoundBG</Filter>
     </Media>
+    <Media Include="..\Resources\soundBG\Another_time.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\soundBG\Destruction.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
   </ItemGroup>
 </Project>

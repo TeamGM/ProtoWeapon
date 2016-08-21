@@ -10,6 +10,7 @@ bool MainUILayer::init()
 
 	auto* pageview = ui::PageView::create();
 
+
 	//UI 기본위치에 생성
 	initMainUI();
 	//initPcSelectUI();
