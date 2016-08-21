@@ -59,6 +59,8 @@ void BattleScene::InitKeyboardListener()
 void BattleScene::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
 {
 	battleManager->KeyDownProcess(keyCode);
+	if (keyCode == EventKeyboard::KeyCode::KEY_ESCAPE)
+		batlleEnd(this);
 }
 void BattleScene::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 {
