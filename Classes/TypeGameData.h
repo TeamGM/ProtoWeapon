@@ -4,7 +4,7 @@ namespace typeGameData
 {
 	enum ENUMPCJOB {
 		UNKNOWNJOB = 0,
-		WARRIOR,
+		SWORDMNAN,
 		WIZARD,
 		ARCHER
 	};
@@ -19,5 +19,11 @@ namespace typeGameData
 	struct SELECTEDDATA {
 		int pcJobNum = typeGameData::UNKNOWNJOB;
 		int bossNum = typeGameData::UNKNOWNBOSS;
+	};
+
+	enum GAMEWINSIZE {
+		//임시데이터
+		winHeight = 640,
+		winWidth = 380
 	};
 }

@@ -1,8 +1,5 @@
 #include "MainUILayer.h"
-#include "MainScene.h"
-#include "BattleScene.h"
 
-USING_NS_CC;
 
 bool MainUILayer::init()
 {
@@ -11,15 +8,25 @@ bool MainUILayer::init()
 		return false;
 	}
 
+	auto* pageview = ui::PageView::create();
+
 	//UI 기본위치에 생성
-	initTitleUI();
+	initMainUI();
 	//initPcSelectUI();
 	//initBossSelectUI();
 
 	return true;
 }
 
-void MainUILayer::initTitleUI()
+void MainUILayer::initMainUI()
+{
+	ui::PageView* pageview = ui::PageView::create();
+	//pageview->setSize()
+
+	initTitleUI(pageview);
+}
+
+void MainUILayer::initTitleUI(ui::PageView* pageview)
 {
 	auto okBtnNormal = Sprite::create("img/TabtoStart.png");
 	auto okBtnSelected = Sprite::createWithSpriteFrame(okBtnNormal->getSpriteFrame());
@@ -37,8 +44,9 @@ void MainUILayer::initTitleUI()
 	this->addChild(pMenu,1);
 }
 
-void MainUILayer::initPcSelectUI()
+void MainUILayer::initPcSelectUI(/*ui::PageView* pageview*/)
 {
+	int soundID_temp = CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("soundEffect/SEmenuSelect.mp3");
 	//tabtostart 찾아서 제거
 	//auto stBtn = this->getChildByName("startBtn");
 	//stBtn->setVisible(false);
@@ -63,8 +71,6 @@ void MainUILayer::initPcSelectUI()
 	auto swordmanDisabled = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto swordmanSelectedFrame = Sprite::create("img/selectedFrame.png");
 	swordmanSelected->setAnchorPoint(Vec2(0, 0));
-	swordmanSelected->setScale(0.5);
-	swordmanSelectedFrame->setScale(2.0);
 	swordmanSelectedFrame->addChild(swordmanSelected,0);
 	//아쳐
 	auto archerNormal = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
@@ -72,8 +78,6 @@ void MainUILayer::initPcSelectUI()
 	auto archerDisabled = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto archerSelectedFrame = Sprite::createWithSpriteFrame(swordmanSelectedFrame->getSpriteFrame());
 	archerSelected->setAnchorPoint(Vec2(0, 0));
-	archerSelected->setScale(0.5);
-	archerSelectedFrame->setScale(2.0);
 	archerSelectedFrame->addChild(archerSelected, 0);
 	//위자드
 	auto wizardNormal = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
@@ -81,18 +85,12 @@ void MainUILayer::initPcSelectUI()
 	auto wizardDisabled = Sprite::createWithSpriteFrame(swordmanNormal->getSpriteFrame());
 	auto wizardSelectedFrame = Sprite::createWithSpriteFrame(swordmanSelectedFrame->getSpriteFrame());
 	wizardSelected->setAnchorPoint(Vec2(0, 0));
-	wizardSelected->setScale(0.5);
-	wizardSelectedFrame->setScale(2.0);
 	wizardSelectedFrame->addChild(wizardSelected, 0);
 
-	auto pcJob01 = MenuItemSprite::create(swordmanNormal, swordmanSelectedFrame, swordmanDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	auto pcJob02 = MenuItemSprite::create(archerNormal, archerSelectedFrame, archerDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-	auto pcJob03 = MenuItemSprite::create(wizardNormal, wizardSelectedFrame, wizardDisabled, CC_CALLBACK_0(MainUILayer::initBossSelectUI, this));
-
-	pcJob01->setScale(0.5f);
-	pcJob02->setScale(0.5f);
-	pcJob03->setScale(0.5f);
-	
+	auto pcJob01 = MenuItemSprite::create(swordmanNormal, swordmanSelectedFrame, swordmanDisabled, CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::SWORDMNAN));
+	auto pcJob02 = MenuItemSprite::create(archerNormal, archerSelectedFrame, archerDisabled, CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::ARCHER));
+	auto pcJob03 = MenuItemSprite::create(wizardNormal, wizardSelectedFrame, wizardDisabled, CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::WIZARD));
+		
 	pcJob01->setPosition(Vec2(120+50, 180));
 	pcJob02->setPosition(Vec2(320, 180));
 	pcJob03->setPosition(Vec2(520-50, 180));
@@ -105,7 +103,7 @@ void MainUILayer::initPcSelectUI()
 	this->addChild(pSelectPcObj,2);
 }
 
-void MainUILayer::initBossSelectUI()
+void MainUILayer::initBossSelectUI(/*ui::PageView* pageview*/)
 {
 	//selectPcLogo 찾아서 제거
 	this->removeChildByName("pcLogo");
@@ -147,9 +145,9 @@ void MainUILayer::initBossSelectUI()
 	radragonSelectedFrame->setScale(2.0);
 	radragonSelectedFrame->addChild(radragonSelected, 0);
 
-	auto boss01 = MenuItemSprite::create(behimothNormal, behimothSelectedFrame, behimothDisabled, CC_CALLBACK_1(MainUILayer::doStartGameSelect, this));
-	auto boss02 = MenuItemSprite::create(LeviathanNormal, LeviathanSelectedFrame, LeviathanDisabled, CC_CALLBACK_1(MainUILayer::doStartGameSelect, this));
-	auto boss03 = MenuItemSprite::create(radragonNormal, radragonSelectedFrame, radragonDisabled, CC_CALLBACK_1(MainUILayer::doStartGameSelect, this));
+	auto boss01 = MenuItemSprite::create(behimothNormal, behimothSelectedFrame, behimothDisabled, CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::BEHIMOTH));
+	auto boss02 = MenuItemSprite::create(LeviathanNormal, LeviathanSelectedFrame, LeviathanDisabled, CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::LEVIATHAN));
+	auto boss03 = MenuItemSprite::create(radragonNormal, radragonSelectedFrame, radragonDisabled, CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::RADRAGON));
 
 	boss01->setPosition(Vec2(320, 180));
 	boss02->setPosition(Vec2(470, 180));
@@ -170,11 +168,19 @@ void MainUILayer::initBossSelectUI()
 //********************************
 void MainUILayer::setSelectedJob(typeGameData::ENUMPCJOB pcJob)
 {
-	//
+	int soundID_temp = CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("soundEffect/SEmenuSelect.mp3");
+	GameManager::getInstance()->setSoloPcJobNum(pcJob);
+	int a = GameManager::getInstance()->getSoloPcJobNum();
+	CCLOG("selected job : %d", a);
+	initBossSelectUI();
 }
-void MainUILayer::setSelectedBoss(/*enumGameData::BOSS boss*/)
+void MainUILayer::setSelectedBoss(typeGameData::ENUMBOSS boss)
 {
-	//
+	int soundID_temp = CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("soundEffect/SEmenuSelect.mp3");
+	GameManager::getInstance()->setSoloBossNum(boss);
+	int a = GameManager::getInstance()->getSoloBossNum();
+	CCLOG("selected job : %d", a);
+	doStartGameSelect(this);
 }
 
 //****************************

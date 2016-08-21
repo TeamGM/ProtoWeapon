@@ -4,6 +4,7 @@
 #include "MainScene.h"
 #include "ResultScene.h"
 #include "TypeGameData.h"
+#include "simpleAudioEngine.h"
 
 
 class GameManager :public cocos2d::Object

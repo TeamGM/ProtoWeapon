@@ -224,6 +224,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <Image Include="..\Resources\img\UI_Stick_BG.png" />
     <Image Include="..\Resources\img\xmainsceneBG.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\soundBG\Neo_Space.mp3" />
+    <Media Include="..\Resources\soundEffect\SEmenuSelect.mp3" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

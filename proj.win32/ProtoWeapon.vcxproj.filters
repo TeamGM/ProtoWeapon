@@ -73,6 +73,12 @@
     <Filter Include="src\Network">
       <UniqueIdentifier>{32b8772e-dcef-4dfa-89e5-03303cdd3ec0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\SoundEffect">
+      <UniqueIdentifier>{db522d8f-92f5-416a-885e-95301c7c6ee9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\SoundBG">
+      <UniqueIdentifier>{ee70b131-a45e-42bd-acf4-5a0bb167069c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -264,5 +270,13 @@
     <Image Include="..\Resources\img\UI_Stick_BG.png">
       <Filter>resource\UI\BattleScene</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\Resources\soundEffect\SEmenuSelect.mp3">
+      <Filter>resource\SoundEffect</Filter>
+    </Media>
+    <Media Include="..\Resources\soundBG\Neo_Space.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
   </ItemGroup>
 </Project>

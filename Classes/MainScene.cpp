@@ -1,6 +1,5 @@
 #include "MainScene.h"
 
-USING_NS_CC;
 
 Scene* MainScene::createScene()
 {
@@ -15,6 +14,8 @@ Scene* MainScene::createScene()
 	scene->addChild(layBackGround);
 	scene->addChild(layMainUI);
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.3f);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Neo_Space.mp3");
 
 	// return the scene
 	return scene;
@@ -26,9 +27,9 @@ bool MainScene::init()
 	{
 		return false;
 	}
-	
-	//loadSprites();
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(0.3f);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Neo_Space.mp3");
 	//this->schedule(schedule_selector(MainScene::loopMainScene), 1.0);
 
 	return true;

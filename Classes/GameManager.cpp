@@ -66,5 +66,8 @@ GameManager::~GameManager()
 
 bool GameManager::init()
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect("soundEffect/SEmenuSelect.mp3");
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic("soundBG/Neo_Space.mp3");
+
 	return true;
 }

@@ -4,12 +4,12 @@
 #include "cocos2d.h"
 #include "MainUILayer.h"
 #include "BackGroundLayer.h"
+#include "simpleAudioEngine.h"
+
+USING_NS_CC;
 
 class MainScene : public cocos2d::Scene
 {
-private:
-	int statMainScene = 0;
-
 public:
 	static cocos2d::Scene* createScene();
 
