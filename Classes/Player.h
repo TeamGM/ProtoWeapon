@@ -8,7 +8,8 @@ public:
 	{
 		none = 0,
 		pressed,
-		released
+		released,
+		holding
 	};
 	enum AnimationPlaying {
 		nothing=0,
@@ -29,6 +30,9 @@ private:
 	void AnimationProcess();
 	void StickProcess(int directionX, int directionY);
 	void SetMove();
+	void StartTumbleAnimation();
+	void StartHoldAnimation();
+	void StartATKAnimation();
 	void FireProcess();
 
 	float HP;
@@ -42,6 +46,7 @@ private:
 	bool directionLock;
 	bool moveLock;
 	bool tumbleLock;
+	bool isHolding;
 	
 	bool atkLock;
 	bool isAnimationPlaying;

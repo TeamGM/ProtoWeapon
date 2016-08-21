@@ -21,17 +21,28 @@ void UIFire::Init() {
 void UIFire::Update()
 {
 	if (isHolding) {
- 		holdFrame++;
-		if (holdFrame > 60)holdFrame = 60;
+		holdFrame++;
+		if (holdFrame > 60) {
+			fireReleased = true;
+			isHolding = false;
+		}
 	}
-	firePressed = false;
-	fireReleased = false;
 }
 
 int UIFire::GetFireStatus() {
 	if (firePressed)return 1;
 	else if (fireReleased)return 2;
 	else return 0;
+}
+
+int UIFire::GetFireHoldFrame()
+{
+	return holdFrame;
+}
+
+bool UIFire::GetIsHolding()
+{
+	return isHolding;
 }
 
 void UIFire::SetFirstPositionXY(int x, int y)
@@ -51,6 +62,7 @@ void UIFire::KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_SPACE) {
 		firePressed = true;
+		fireReleased = false;
 		isHolding = true;
 		holdFrame = 0;
 	}
@@ -58,6 +70,7 @@ void UIFire::KeyDownProcess(cocos2d::EventKeyboard::KeyCode keyCode)
 void UIFire::KeyUpProcess(cocos2d::EventKeyboard::KeyCode keyCode)
 {
 	if (keyCode == cocos2d::EventKeyboard::KeyCode::KEY_SPACE) {
+		firePressed = false;
 		fireReleased = true;
 		isHolding = false;
 	}

@@ -90,4 +90,17 @@ void UILayer::DrawStick(UIStick * stick)
 
 void UILayer::DrawFire(UIFire * fire)
 {
+	
+	if (fire->GetIsHolding()) {
+		fireBG->setVisible(true);
+		firePoint->setVisible(true);
+	}
+	else  { 
+		fireBG->setVisible(false);
+		firePoint->setVisible(false);
+	}
+	int holdFrame = fire->GetFireHoldFrame();
+	if (holdFrame > 30)holdFrame = 30;
+		float ratio = (30.0 + 1 * holdFrame) / 30.0;
+	firePoint->setScale(ratio);
 }

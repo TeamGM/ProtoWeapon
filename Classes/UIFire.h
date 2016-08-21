@@ -8,6 +8,8 @@ public:
 	void Update();
 
 	int GetFireStatus();
+	int GetFireHoldFrame();
+	bool GetIsHolding();
 	
 	void SetFirstPositionXY(int x, int y);
 	void SetCurrentPositionXY(int x, int y);
