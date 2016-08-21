@@ -6,6 +6,8 @@ public:
 	~UIFire();
 	void Init();
 	void Update();
+
+	int GetFireStatus();
 	
 	void SetFirstPositionXY(int x, int y);
 	void SetCurrentPositionXY(int x, int y);
@@ -16,6 +18,9 @@ public:
 private:
 	int positionX;
 	int positionY;
-	float holdingTime;
+	int holdFrame;
+	bool isHolding;
 	bool locked;
+	bool firePressed;
+	bool fireReleased;
 };

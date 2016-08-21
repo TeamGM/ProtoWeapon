@@ -14,8 +14,8 @@ BattleManager::~BattleManager() {
 }
 void BattleManager::Update()
 {
+	fieldManager->Update(uiManager->GetUIStick()->GetDirection().x, uiManager->GetUIStick()->GetDirection().y, uiManager->GetUIFire()->GetFireStatus() );
 	uiManager->Update(100, 100); //юс╫ц 100 100
-	fieldManager->Update(uiManager->GetUIStick()->GetDirection().x, uiManager->GetUIStick()->GetDirection().y );
 	monster->Update();
 }
 

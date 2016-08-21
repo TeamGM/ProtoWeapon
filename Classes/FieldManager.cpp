@@ -17,8 +17,8 @@ Player * FieldManager::getPlayer()
 	return player;
 }
 
-void FieldManager::Update(int moveDirectionX, int moveDirectionY)
+void FieldManager::Update(int moveDirectionX, int moveDirectionY, int fireStatus)
 {
-	player->Update(moveDirectionX, moveDirectionY, Player::FireStatus::none );
+	player->Update(moveDirectionX, moveDirectionY, fireStatus );
 	player->Move();
 }

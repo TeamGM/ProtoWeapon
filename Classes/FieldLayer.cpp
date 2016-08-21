@@ -20,8 +20,7 @@ bool FieldLayer::init(){
 
 	player = Sprite::create("img/swordmanStand.png");
 //	player->setPosition(Vec2(640, 200));
-	player->setAnchorPoint(Vec2(0.25, 0.25));
-	player->setScale(0.5, 0.5);
+	player->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(player, 2);
 
 	boss = Sprite::create("img/raDragon.png");

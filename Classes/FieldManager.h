@@ -8,7 +8,7 @@ public:
 	~FieldManager();
 	void Init();
 	Player * getPlayer();
-	void Update(int moveDirectionX, int moveDirectionY);
+	void Update(int moveDirectionX, int moveDirectionY, int fireStatus);
 private:
 	int startPositionX;
 	int startPositionY;

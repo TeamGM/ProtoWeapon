@@ -64,24 +64,39 @@ int Player::GetPositionY()
 
 void Player::AnimationProcess( )
 {
+	if (!isAnimationPlaying) return;
 	currentFrame++;
-	if (currentFrame > animationFrameDelays[animationPlaying][currentAnimationFrame]) {
+	cocos2d::log("%d animation currentAnimationframe : %d current frame : %d, tumbleSwitch = %d, tumbleFrame = %d",animationPlaying,currentAnimationFrame,currentFrame,tumbleSwitch,tumbleSwitchFrame);
+	if (currentAnimationFrame<=animationMaxFrames[animationPlaying] && currentFrame > animationFrameDelays[animationPlaying][currentAnimationFrame]) {
 		currentAnimationFrame++;
 		currentFrame = 0;
 	}
+	if (animationPlaying = tumble) {
+		if (currentFrame < 25 && currentFrame>5)moveSpeed = 5;
+		else moveSpeed = 3;
+	}
 	if (currentAnimationFrame > animationMaxFrames[animationPlaying]) {
+		if (animationPlaying == hold) {
+			atkLock = false;
+			if (currentFrame > 60) fireStatus=released;
+			return;
+		}
 		currentAnimationFrame = 0;
+		animationPlaying = nothing;
 		isAnimationPlaying = false;
 		directionLock = false;
 		moveLock = false;
+		atkLock = false;
+		tumbleLock = false;
 		moveSpeed = 3;
 	}
-
+	if (tumbleSwitch && currentFrame < tumbleSwitchFrame || (tumbleSwitchFrame + 15 < currentFrame))
+		tumbleSwitch = false;
 }
 
 void Player::StickProcess(int directionX, int directionY)
 {
-	if (directionX != 0 && directionY != 0) {
+	if (directionX != 0 || directionY != 0) {
 		if (!directionLock) {
 			this->directionX = directionX;
 			this->directionY = directionY;
@@ -89,6 +104,8 @@ void Player::StickProcess(int directionX, int directionY)
 		if (!moveLock) {
 			SetMove();
 		}
+		else
+			Stay();
 	}
 	else
 		Stay();
@@ -105,21 +122,29 @@ void Player::SetMove()
 	if (nextPositionY < 0) nextPositionY = 0;
 }
 
-void Player::FireProcess(FireStatus fireStatus)
+void Player::FireProcess()
 {
 	if (fireStatus == pressed){
+
+		cocos2d::log("fire pressed");
+		fireStatus = none;
 		if (!tumbleLock) {
 			if (tumbleSwitch){
 				tumbleSwitch = false;
 				directionLock = true;
 				moveLock = false;
 				atkLock = true;
-				moveSpeed = 5;
-				isAnimationPlaying = tumble;
+				animationPlaying = tumble;
+				isAnimationPlaying = true;
 				currentAnimationFrame = 1;
 				currentFrame = 0;
+				cocos2d::log("Tumble animation start");
+				return;
 			}
-			else tumbleSwitch = !tumbleSwitch;
+			else {
+				tumbleSwitch = !tumbleSwitch;
+				tumbleSwitchFrame = currentFrame;
+			}
 		}
 		if (!atkLock) {
 			directionLock = true;
@@ -129,11 +154,14 @@ void Player::FireProcess(FireStatus fireStatus)
 			isAnimationPlaying = true;
 			currentAnimationFrame = 1;
 			currentFrame = 0;
-			return;
+			cocos2d::log("Hold animation start");
 		}
+		
 	}
 	else if (fireStatus == released) {
-		if (!atkLock) {
+
+		cocos2d::log("fire released");
+		if (!atkLock && animationPlaying==hold) {
 			directionLock = true;
 			moveLock = true;
 			atkLock = true;
@@ -142,17 +170,19 @@ void Player::FireProcess(FireStatus fireStatus)
 			isAnimationPlaying = true;
 			currentAnimationFrame = 1;
 			currentFrame = 0;
-			return;
+			cocos2d::log("ATK animation start");
+			fireStatus = none;
 		}
-		else
-			return;
+		else if(animationPlaying==tumble)
+			fireStatus=none;
 	}
 }
 
-void Player::Update(int directionX, int directionY, FireStatus fireStatus )
+void Player::Update(int directionX, int directionY, int fireStatus )
 {
-	this->fireStatus = fireStatus;
+	if(fireStatus!=0) 
+		this->fireStatus = fireStatus;
 	StickProcess(directionX, directionY);
-	FireProcess(fireStatus);
+	FireProcess();
 	AnimationProcess();
 }

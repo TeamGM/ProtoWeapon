@@ -67,9 +67,6 @@
     <Filter Include="src\Manager\BattleManager\FieldManager">
       <UniqueIdentifier>{0ec57c92-88c3-4ba5-b123-f332c6ac8a66}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Manager\BattleManager\Characters">
-      <UniqueIdentifier>{485414b4-2a5f-4f0e-b2da-1c32b9a14d84}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Network">
       <UniqueIdentifier>{32b8772e-dcef-4dfa-89e5-03303cdd3ec0}</UniqueIdentifier>
     </Filter>
@@ -78,6 +75,9 @@
     </Filter>
     <Filter Include="resource\SoundBG">
       <UniqueIdentifier>{ee70b131-a45e-42bd-acf4-5a0bb167069c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Manager\BattleManager\FieldManager\Characters">
+      <UniqueIdentifier>{485414b4-2a5f-4f0e-b2da-1c32b9a14d84}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -115,10 +115,10 @@
       <Filter>src\Manager\BattleManager\UIManager</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Monster.cpp">
-      <Filter>src\Manager\BattleManager\Characters</Filter>
+      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Player.cpp">
-      <Filter>src\Manager\BattleManager\Characters</Filter>
+      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MainScene.cpp">
       <Filter>src\Scenes\MainScene</Filter>
@@ -168,10 +168,10 @@
       <Filter>src\Scenes\BattleScene</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Player.h">
-      <Filter>src\Manager\BattleManager\Characters</Filter>
+      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Monster.h">
-      <Filter>src\Manager\BattleManager\Characters</Filter>
+      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MainScene.h">
       <Filter>src\Scenes\MainScene</Filter>

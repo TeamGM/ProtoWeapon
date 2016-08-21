@@ -1,4 +1,5 @@
 #pragma once
+#include "cocos2d.h"
 class Player {
 public:
 	Player();
@@ -16,7 +17,7 @@ public:
 		tumble,
 		damaged
 	};
-	void Update(int directionX, int directionY, FireStatus fireStatus );
+	void Update(int directionX, int directionY, int fireStatus );
 	
 	void Move();
 	void Stay();
@@ -28,7 +29,7 @@ private:
 	void AnimationProcess();
 	void StickProcess(int directionX, int directionY);
 	void SetMove();
-	void FireProcess(FireStatus fireStatus);
+	void FireProcess();
 
 	float HP;
 	int positionX;
@@ -41,10 +42,12 @@ private:
 	bool directionLock;
 	bool moveLock;
 	bool tumbleLock;
+	
 	bool atkLock;
 	bool isAnimationPlaying;
 	bool tumbleSwitch;
-	FireStatus fireStatus;
+	int tumbleSwitchFrame;
+	int fireStatus;
 	AnimationPlaying animationPlaying;
 	int currentFrame;
 	int currentAnimationFrame;
