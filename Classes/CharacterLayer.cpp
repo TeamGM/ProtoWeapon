@@ -44,10 +44,18 @@ RepeatForever * CharacterLayer::CreateWalkAnimation() {
 
 CCAnimate * CharacterLayer::CreateAttackAnimation() {
 	CCAnimation * playerAttackAnimation = CCAnimation::create();
-	playerAttackAnimation->addSpriteFrame(SpriteFrame::create("img/SM_Fatk1.png", CCRect(0, 0, 200, 200)));
 	playerAttackAnimation->addSpriteFrame(SpriteFrame::create("img/SM_Fatk2.png", CCRect(0, 0, 200, 200)));
 	playerAttackAnimation->addSpriteFrame(SpriteFrame::create("img/SM_Fatk3.png", CCRect(0, 0, 200, 200)));
 	playerAttackAnimation->setDelayPerUnit(0.33f);
+	auto result = CCAnimate::create(playerAttackAnimation);
+	return result;
+
+}
+
+CCAnimate * CharacterLayer::CreateHoldAnimation() {
+	CCAnimation * playerAttackAnimation = CCAnimation::create();
+	playerAttackAnimation->addSpriteFrame(SpriteFrame::create("img/SM_Fatk1.png", CCRect(0, 0, 200, 200)));
+	playerAttackAnimation->setDelayPerUnit(1.0f);
 	auto result = CCAnimate::create(playerAttackAnimation);
 	return result;
 
@@ -76,13 +84,16 @@ void CharacterLayer::DrawPlayer(Player * player)
 			this->player->stopAction(playerWalkAnimation);
 		else if (playerState == atk)
 			this->player->stopAction(playerAttackAnimation);
+		else if (playerState == hold)
+			this->player->stopAction(playerAttackAnimation);
 
-		if (newPlayerState == move) {
+		if (newPlayerState == move) 
 			this->player->runAction(playerWalkAnimation=CreateWalkAnimation());	
-		}
-		if (newPlayerState == atk) {
+		else if (newPlayerState == atk) 
 			this->player->runAction(playerAttackAnimation=CreateAttackAnimation());
-		}
+		else if (newPlayerState == hold)
+			this->player->runAction(playerAttackAnimation=CreateHoldAnimation());
+		
 		playerState = newPlayerState;
 	}
 

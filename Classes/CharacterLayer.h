@@ -18,6 +18,8 @@ private:
 	cocos2d::RepeatForever * CreateWalkAnimation();
 	cocos2d::CCAnimate * CreateAttackAnimation();
 
+	cocos2d::CCAnimate * CreateHoldAnimation();
+
 	PlayerState playerState;
 
 	cocos2d::Sprite * player;
