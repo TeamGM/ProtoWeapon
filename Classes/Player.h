@@ -1,5 +1,6 @@
 #pragma once
 #include "cocos2d.h"
+#include "PlayerState.h"
 class Player {
 public:
 	Player();
@@ -11,13 +12,7 @@ public:
 		released,
 		holding
 	};
-	enum AnimationPlaying {
-		nothing=0,
-		hold,
-		atk,
-		tumble,
-		damaged
-	};
+	PlayerState GetPlayerState();
 	void Update(int directionX, int directionY, int fireStatus );
 	
 	void Move();
@@ -28,6 +23,7 @@ private:
 	void Init();
 	void InitAnimations();
 	void AnimationProcess();
+	void ClearAnimation();
 	void StickProcess(int directionX, int directionY);
 	void SetMove();
 	void StartTumbleAnimation();
@@ -53,7 +49,7 @@ private:
 	bool tumbleSwitch;
 	int tumbleSwitchFrame;
 	int fireStatus;
-	AnimationPlaying animationPlaying;
+	PlayerState animationPlaying;
 	int currentFrame;
 	int currentAnimationFrame;
 	

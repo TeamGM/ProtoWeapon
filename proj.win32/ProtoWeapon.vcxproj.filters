@@ -194,6 +194,9 @@
     <ClInclude Include="..\Classes\CharacterLayer.h">
       <Filter>src\Scenes\BattleScene\BattleSceneLayers</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\PlayerState.h">
+      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

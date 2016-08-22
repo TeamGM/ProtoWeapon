@@ -23,6 +23,7 @@ void UIFire::Update()
 	if (isHolding) {
 		holdFrame++;
 		if (holdFrame > 60) {
+			firePressed = false;
 			fireReleased = true;
 			isHolding = false;
 		}
@@ -73,5 +74,6 @@ void UIFire::KeyUpProcess(cocos2d::EventKeyboard::KeyCode keyCode)
 		firePressed = false;
 		fireReleased = true;
 		isHolding = false;
+		holdFrame = 0;
 	}
 }

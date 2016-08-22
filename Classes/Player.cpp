@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "math.h"
-
 Player::Player()
 {
 	Init();
@@ -52,6 +51,7 @@ void Player::Move() {
 void Player::Stay() {
 	nextPositionX = positionX;
 	nextPositionY = positionY;
+	//animationPlaying = nothing;
 }
 
 int Player::GetPositionX()
@@ -68,33 +68,50 @@ void Player::AnimationProcess( )
 	if (!isAnimationPlaying) return;
 	currentFrame++;
 //	cocos2d::log("%d animation currentAnimationframe : %d current frame : %d, tumbleSwitch = %d, tumbleFrame = %d",animationPlaying,currentAnimationFrame,currentFrame,tumbleSwitch,tumbleSwitchFrame);
-	if (currentAnimationFrame<=animationMaxFrames[animationPlaying] && currentFrame > animationFrameDelays[animationPlaying][currentAnimationFrame]) {
-		currentAnimationFrame++;
-		currentFrame = 0;
-	}
+	
 	if (animationPlaying == tumble) {
-		if (currentFrame < 25 && currentFrame>5)moveSpeed = 5;
+		if (currentFrame < 25 && currentFrame>5) 
+			moveSpeed = 5;
 		else moveSpeed = 3;
 	}
-	if (currentAnimationFrame > animationMaxFrames[animationPlaying]) {
-		if (animationPlaying == hold) {
-			atkLock = false;
-			if (currentFrame > 60) fireStatus=released;
-			return;
-		}
-		currentAnimationFrame = 0;
-		animationPlaying = nothing;
-		isAnimationPlaying = false;
-		directionLock = false;
-		moveLock = false;
-		atkLock = false;
-		tumbleLock = false;
-		moveSpeed = 3;
+	if (animationPlaying == atk) {
+		if (currentAnimationFrame == 2)
+			tumbleLock = false;
 	}
-	if (tumbleSwitch && currentFrame < tumbleSwitchFrame || (tumbleSwitchFrame + 15 < currentFrame))
+	if (animationPlaying == hold) {
+		if (currentFrame > 20) {
+			atkLock = false;
+			if (!isHolding)
+				StartATKAnimation();
+		}
+		if (currentFrame > 60) {
+			StartATKAnimation();
+		}
+	}
+	else {
+		if (currentFrame > animationFrameDelays[animationPlaying][currentAnimationFrame]) {
+
+				currentAnimationFrame++;
+				currentFrame = 0;
+
+		}
+		if (currentAnimationFrame > animationMaxFrames[animationPlaying])
+			ClearAnimation();
+	}
+	if (tumbleSwitch && (( currentFrame < tumbleSwitchFrame ) || (tumbleSwitchFrame + 15 < currentFrame)))
 		tumbleSwitch = false;
 }
+void Player::ClearAnimation() {
+	isAnimationPlaying = false;
 
+	currentAnimationFrame = 0;
+	animationPlaying = nothing;
+	directionLock = false;
+	moveLock = false;
+	atkLock = false;
+	tumbleLock = false;
+	moveSpeed = 3;
+}
 void Player::StickProcess(int directionX, int directionY)
 {
 	if (directionX != 0 || directionY != 0) {
@@ -108,8 +125,12 @@ void Player::StickProcess(int directionX, int directionY)
 		else
 			Stay();
 	}
+	else if (directionLock && !moveLock) {
+		SetMove();
+	}
 	else
 		Stay();
+
 }
 
 void Player::SetMove()
@@ -121,25 +142,29 @@ void Player::SetMove()
 	if (nextPositionY > 640) nextPositionY = 640;
 	if (nextPositionX < 0) nextPositionX = 0;
 	if (nextPositionY < 0) nextPositionY = 0;
+	if(!animationPlaying) animationPlaying = move;
 }
 void Player::StartTumbleAnimation() {
+	
+	isAnimationPlaying = true;
 	tumbleSwitch = false;
+	tumbleLock = true;
 	directionLock = true;
 	moveLock = false;
 	atkLock = true;
 	animationPlaying = tumble;
-	isAnimationPlaying = true;
 	currentAnimationFrame = 1;
 	currentFrame = 0;
 	cocos2d::log("Tumble animation start");
 } 
 void Player::StartHoldAnimation()
 {
+	isAnimationPlaying = true;
 	directionLock = true;
 	moveLock = true;
 	atkLock = true;
+	tumbleLock = false;
 	animationPlaying = hold;
-	isAnimationPlaying = true;
 	currentAnimationFrame = 1;
 	currentFrame = 0;
 	cocos2d::log("Hold animation start");
@@ -169,19 +194,30 @@ void Player::FireProcess()
 				tumbleSwitchFrame = currentFrame;
 			}
 		}
-		if (!atkLock)
+		if (isHolding && !isAnimationPlaying)
 			StartHoldAnimation();
 		isHolding = true;
+		cocos2d::log("Fire Pressed, Tumble Switch %d Frame %d current %d",tumbleSwitch, tumbleSwitchFrame , currentFrame);
+
 	}
-	else if (fireStatus == released) {
-		//cocos2d::log("fire released");
-		if (!atkLock && animationPlaying==hold) {
-			StartATKAnimation();
+	else if (fireStatus == released ) {
+		if (isHolding) {
+			cocos2d::log("fire released");
+			if (animationPlaying == tumble)
+				fireStatus = none;
+			else if (!atkLock && (animationPlaying == hold)) {
+				StartATKAnimation();
+			}
+			
+			isHolding = false;
 		}
-		else if(animationPlaying==tumble)
-			fireStatus=none;
-		isHolding = false;
+		fireStatus = none;
 	}
+}
+
+PlayerState Player::GetPlayerState()
+{
+	return animationPlaying;
 }
 
 void Player::Update(int directionX, int directionY, int fireStatus )
