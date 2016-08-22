@@ -132,6 +132,9 @@
     <ClCompile Include="..\Classes\FieldLayer.cpp">
       <Filter>src\Scenes\BattleScene\BattleSceneLayers</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\CharacterLayer.cpp">
+      <Filter>src\Scenes\BattleScene\BattleSceneLayers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -186,6 +189,9 @@
       <Filter>src\Manager\BattleManager\FieldManager</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FieldLayer.h">
+      <Filter>src\Scenes\BattleScene\BattleSceneLayers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CharacterLayer.h">
       <Filter>src\Scenes\BattleScene\BattleSceneLayers</Filter>
     </ClInclude>
   </ItemGroup>

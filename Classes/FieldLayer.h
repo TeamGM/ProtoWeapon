@@ -1,6 +1,8 @@
 #pragma once
 #include "cocos2d.h"
 #include "FieldManager.h"
+#include "CharacterLayer.h"
+
 class FieldLayer : public cocos2d::Layer{
 public:
 	FieldLayer();
@@ -12,11 +14,6 @@ public:
 	CREATE_FUNC(FieldLayer);
 
 private:
+	CharacterLayer * characterLayer;
 	cocos2d::Sprite * map;
-	cocos2d::Sprite * player;
-	cocos2d::Sprite * boss;
-	cocos2d::Sprite * playerWalkAnimation[5];
-	cocos2d::Sprite * playerAttackAnimation[5];
-	cocos2d::CCAnimation * playerWalk;
-	cocos2d::CCAction * playerAttack;
 };
