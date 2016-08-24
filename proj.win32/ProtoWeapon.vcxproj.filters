@@ -203,16 +203,11 @@
     <ClInclude Include="..\Classes\PlayerState.h">
       <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="..\Classes\MonsterState.h">
-      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
-=======
     <ClInclude Include="..\Classes\ResultBGLayer.h">
       <Filter>src\Scenes\ResultScene\ResultSceneLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\ResultUILayer.h">
       <Filter>src\Scenes\ResultScene\ResultSceneLayer</Filter>
->>>>>>> origin/master
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
