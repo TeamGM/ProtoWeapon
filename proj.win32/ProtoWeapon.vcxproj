@@ -155,8 +155,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\GameManager.cpp" />
     <ClCompile Include="..\Classes\MainScene.cpp" />
     <ClCompile Include="..\Classes\Monster.cpp" />
+    <ClCompile Include="..\Classes\ResultBGLayer.cpp" />
     <ClCompile Include="..\Classes\ResultScene.cpp" />
     <ClCompile Include="..\Classes\MainUILayer.cpp" />
+    <ClCompile Include="..\Classes\ResultUILayer.cpp" />
     <ClCompile Include="..\Classes\UIFire.cpp" />
     <ClCompile Include="..\Classes\UILayer.cpp" />
     <ClCompile Include="..\Classes\UIManager.cpp" />
@@ -177,8 +179,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\MainScene.h" />
     <ClInclude Include="..\Classes\Monster.h" />
     <ClInclude Include="..\Classes\PlayerState.h" />
+    <ClInclude Include="..\Classes\ResultBGLayer.h" />
     <ClInclude Include="..\Classes\ResultScene.h" />
     <ClInclude Include="..\Classes\MainUILayer.h" />
+    <ClInclude Include="..\Classes\ResultUILayer.h" />
     <ClInclude Include="..\Classes\TypeGameData.h" />
     <ClInclude Include="..\Classes\UIFire.h" />
     <ClInclude Include="..\Classes\UILayer.h" />

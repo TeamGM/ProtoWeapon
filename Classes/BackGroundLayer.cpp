@@ -1,6 +1,4 @@
 #include "BackGroundLayer.h"
-#include <string.h>
-#include <stdlib.h>
 
 USING_NS_CC;
 
@@ -11,7 +9,6 @@ bool BackGroundLayer::init()
 		return false;
 	}
 
-	//auto sprBG = Sprite::createWithSpriteFrameName("mainsceneBG");
 	auto sprBG = Sprite::create("img/mainsceneBG.png");
 	
 	sprBG->setPosition(Vec2(0, 0));

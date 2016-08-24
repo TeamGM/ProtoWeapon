@@ -3,8 +3,10 @@
 
 #include "cocos2d.h"
 #include "GameManager.h"
+#include "ResultBGLayer.h"
+#include "ResultUILayer.h"
 
-class ResultScene : public cocos2d::Layer
+class ResultScene : public cocos2d::Scene
 {
 public:
 	static cocos2d::Scene* createScene();
@@ -12,8 +14,6 @@ public:
 	virtual bool init();
 
 	CREATE_FUNC(ResultScene);
-
-	void resultEnd(Ref* pSender);
 };
 
 #endif // __RESULT_SCNEN_H__
