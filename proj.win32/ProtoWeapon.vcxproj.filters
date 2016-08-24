@@ -197,6 +197,9 @@
     <ClInclude Include="..\Classes\PlayerState.h">
       <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\MonsterState.h">
+      <Filter>src\Manager\BattleManager\FieldManager\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

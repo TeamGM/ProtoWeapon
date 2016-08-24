@@ -26,6 +26,6 @@ bool FieldLayer::init(){
 
 void FieldLayer::Draw(FieldManager * fieldManager)
 {
-	characterLayer->Draw(fieldManager->getPlayer());
+	characterLayer->Draw(fieldManager->GetPlayer(), fieldManager->GetMonster());
 	this->runAction(Follow::create(this->characterLayer->GetPlayer(), Rect(0, 0, 1280, 720)));
 }

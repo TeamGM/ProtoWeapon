@@ -2,8 +2,6 @@
 void BattleManager::init() {
 	uiManager = new UIManager();
 	fieldManager = new FieldManager();
-	player = new Player();
-	monster = new Monster();
 }
 BattleManager::BattleManager() {
 	init();
@@ -16,7 +14,6 @@ void BattleManager::Update()
 {
 	fieldManager->Update(uiManager->GetUIStick()->GetDirection().x, uiManager->GetUIStick()->GetDirection().y, uiManager->GetUIFire()->GetFireStatus() );
 	uiManager->Update(100, 100); //юс╫ц 100 100
-	monster->Update();
 }
 
 UIManager * BattleManager::GetUIManager()

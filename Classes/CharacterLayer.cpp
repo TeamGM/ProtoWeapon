@@ -16,18 +16,47 @@ bool CharacterLayer::init() {
 	player = Sprite::create("img/swordmanStand.png");
 	//	player->setPosition(Vec2(640, 200));
 	player->setAnchorPoint(Vec2(0.5, 0.5));
-	this->addChild(player, 2);
+	addChild(player, 2);
 
 
-	boss = Sprite::create("img/raDragon.png");
-	boss->setPosition(Vec2(620, 400));
-	boss->setAnchorPoint(Vec2(0.5, 0.5));
-	this->addChild(boss, 2);
+	monster = Sprite::create("img/raDragon.png");
+	//monster->setPosition(Vec2(620, 400));
+	monster->setAnchorPoint(Vec2(0.5, 0.5));
+	addChild(monster, 2);
+
+	monsterLeftMove = Sprite::create("img/radragon_walk1.png");
+	monster->addChild(monsterLeftMove, 2);
+	monsterLeftMove->setVisible(false);
+	monsterRightMove = Sprite::create("img/radragon_walk2.png");
+	monster->addChild(monsterRightMove, 2);
+	monsterRightMove->setVisible(false);
+
+	monsterLeftAttack = new Sprite *[4];
+	monster->addChild(monsterLeftAttack[0] = Sprite::create("img/RD_DLAtk1.png"),2);
+	monster->addChild(monsterLeftAttack[1] = Sprite::create("img/RD_DLAtk2.png"),2);
+	monster->addChild(monsterLeftAttack[2] = Sprite::create("img/RD_DLAtk3.png"),2);
+	monsterLeftAttack[0]->setVisible(false);
+	monsterLeftAttack[1]->setVisible(false);
+	monsterLeftAttack[2]->setVisible(false);
+	monsterRightAttack = new Sprite *[4];
+	monster->addChild(monsterRightAttack[0] = Sprite::create("img/RD_DRAtk1.png"),2);
+	monster->addChild(monsterRightAttack[1] = Sprite::create("img/RD_DRAtk2.png"),2);
+	monster->addChild(monsterRightAttack[2] = Sprite::create("img/RD_DRAtk3.png"),2);
+	monsterRightAttack[0]->setVisible(false);
+	monsterRightAttack[1]->setVisible(false);
+	monsterRightAttack[2]->setVisible(false);
 
 	playerWalkAnimation = CreateWalkAnimation();
 	playerAttackAnimation = CreateAttackAnimation();
 		
 	return true;
+}
+CCAnimate * CharacterLayer::CreateMonsterAtkAnimation() {
+	CCAnimation * playerAttackAnimation = CCAnimation::create();
+	//playerAttackAnimation->addSpriteFrame( (CCSpriteFrame *)monsterLeftAttack->objectAtIndex(1) );
+	auto result = CCAnimate::create(playerAttackAnimation);
+	return result;
+
 }
 
 RepeatForever * CharacterLayer::CreateWalkAnimation() {
@@ -61,16 +90,17 @@ CCAnimate * CharacterLayer::CreateHoldAnimation() {
 
 }
 
-void CharacterLayer::Draw(Player * player)
+void CharacterLayer::Draw(Player * player, Monster * monster)
 {
 	DrawPlayer(player);
-	if (boss->getPositionY() > this->player->getPositionY()) {
+	DrawMonster(monster);
+	if (this->monster->getPositionY() > this->player->getPositionY()) {
 		this->player->setLocalZOrder(2);
-		boss->setLocalZOrder(1);
+		this->monster->setLocalZOrder(1);
 	}
-	else if (boss->getPositionY() < this->player->getPositionY()) {
+	else if (this->monster->getPositionY() < this->player->getPositionY()) {
 		this->player->setLocalZOrder(1);
-		boss->setLocalZOrder(2);
+		this->monster->setLocalZOrder(2);
 	}
 }
 
@@ -97,6 +127,22 @@ void CharacterLayer::DrawPlayer(Player * player)
 		playerState = newPlayerState;
 	}
 
+}
+
+void CharacterLayer::DrawMonster(Monster * monster)
+{
+	monsterLeftAttack[1]->getDisplayFrame();
+	this->monster->setPosition(monster->GetPositionX(), monster->GetPositionY());
+	MonsterState newMonsterState = monster->GetMonsterState();
+	if (newMonsterState == leftMove)
+		this->monster->setSpriteFrame(monsterLeftMove->displayFrame());
+	if (newMonsterState == lAttack)
+		this->monster->setSpriteFrame(monsterLeftAttack[monster->GetAnimationFrame()]->displayFrame());
+	if (newMonsterState == rightMove)
+		this->monster->setSpriteFrame(monsterRightMove->displayFrame());
+	if (newMonsterState == rAttack)
+		this->monster->setSpriteFrame(monsterRightAttack[monster->GetAnimationFrame()]->displayFrame());
+	monsterState = newMonsterState;
 }
 
 cocos2d::Sprite * CharacterLayer::GetPlayer()
