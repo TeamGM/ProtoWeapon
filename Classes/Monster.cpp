@@ -80,12 +80,14 @@ void Monster::Update( int playerX, int playerY)
 	frameCount++;
 	if (monsterState == lAttack || monsterState == rAttack) {
 		
-		if (frameCount > 90) {
+		if (frameCount > 120) {
 			frameCount -= 90;
 			monsterState = leftMove;
 			NextActivity(playerX, playerY);
 		}
-		animationFrame = ((frameCount-1) / 30) ;
+		if(frameCount<60) animationFrame=0;
+		else if (frameCount < 80)animationFrame = 1;
+		else animationFrame = 2;
 	}
 	else if (frameCount > 30) {
 		NextActivity(playerX,playerY);
