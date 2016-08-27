@@ -7,7 +7,8 @@ bool ResultUILayer::init()
 	{
 		return false;
 	}
-
+	
+	winGame = GameManager::getInstance()->getSoloBattleResult();
 	initResultUI();
 
 	return true;
@@ -16,7 +17,7 @@ bool ResultUILayer::init()
 void ResultUILayer::initResultUI()
 {
 	//임시메뉴코드 시작
-	auto item1 = MenuItemFont::create("Close ResultScene", CC_CALLBACK_1(ResultUILayer::resultEnd, this));
+	auto item1 = MenuItemFont::create("Close ResultScene", CC_CALLBACK_1(ResultUILayer::endResultScene, this));
 	item1->setColor(Color3B(255, 255, 255));
 
 	auto pMenu = Menu::create(item1, NULL);
@@ -24,11 +25,28 @@ void ResultUILayer::initResultUI()
 	pMenu->setPosition(Point(400, 30));
 	pMenu->setAnchorPoint(Vec2(0, 0));
 
-	this->addChild(pMenu);
+	this->addChild(pMenu,2);
 	//임시메뉴코드 끝
+
+	auto sprSceneLogo = Sprite::create("img/Result_Logo.png");
+	auto sprBoard = Sprite::create("img/CharacterSelectBoard.png");
+
+	this->addChild(sprBoard, 1);
+	this->addChild(sprSceneLogo, 2);
+	
+	if (winGame)
+	{
+		auto sprBtlResultLogo = Sprite::create("img/Succeed_Logo.png");
+		this->addChild(sprBtlResultLogo, 2);
+	} 
+	else
+	{
+		auto sprBtlResultLogo = Sprite::create("img/FAILED_LOGO.png");
+		this->addChild(sprBtlResultLogo, 2);
+	}
 }
 
-void ResultUILayer::resultEnd(Ref* pSender)
+void ResultUILayer::endResultScene(Ref* pSender)
 {
-	GameManager::getInstance()->doSoloResultEnd(pSender);
+	GameManager::getInstance()->startSoloMainScene(pSender);
 }

@@ -181,14 +181,14 @@ void MainUILayer::setSelectedBoss(typeGameData::ENUMBOSS boss)
 	GameManager::getInstance()->setSoloBossNum(boss);
 	int a = GameManager::getInstance()->getSoloBossNum();
 	CCLOG("selected job : %d", a);
-	doStartGameSelect(this);
+	startSoloGame(this);
 }
 
 //****************************
 /* 연출 함수 따로 만들 것 */
 //****************************
 
-void MainUILayer::doStartGameSelect(Ref* pSender)
+void MainUILayer::startSoloGame(Ref* pSender)
 {
-	GameManager::getInstance()->doSoloStartBattleScene(pSender);
+	GameManager::getInstance()->startSoloBattleScene(pSender);
 }

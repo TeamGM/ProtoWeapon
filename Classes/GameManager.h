@@ -20,9 +20,12 @@ public:
 	int getSoloPcJobNum();
 	int getSoloBossNum();
 
-	void doSoloStartBattleScene(Ref* pSender);
-	void doSoloBattleEnd(Ref* pSender);
-	void doSoloResultEnd(Ref* pSender);
+	void setSoloBattleResult(bool gameResult);
+	bool getSoloBattleResult();
+
+	void startSoloBattleScene(Ref* pSender);
+	void startSoloResultScene(Ref* pSender);
+	void startSoloMainScene(Ref* pSender);
 
 	//네트워크용 임시
 	/* 함수명 적절히 바꿀 것
@@ -35,6 +38,7 @@ private:
 	//외부에서 임의접근불가
 	//@(get/set)Solo(PcJob/Boss)Num 으로 접근가능
 	typeGameData::SELECTEDDATA soloSelecDatas;
+	bool soloBattleResult = false;
 	
 	//네트워크용 임시 플레이어 수에 따라 조정
 	//SELECTDATA netSelectDatas;

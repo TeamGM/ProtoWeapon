@@ -8,6 +8,8 @@ USING_NS_CC;
 
 class ResultUILayer : public cocos2d::Layer
 {
+private:
+	bool winGame = false;
 public:
 	virtual bool init();
 
@@ -17,5 +19,5 @@ public:
 
 	//get 배틀결과데이터
 
-	void resultEnd(Ref* pSender);
+	void endResultScene(Ref* pSender);
 };

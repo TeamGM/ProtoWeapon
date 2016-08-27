@@ -42,7 +42,7 @@ void BattleScene::update(float dt)
 
 void BattleScene::batlleEnd(Ref* pSender)
 {
-	GameManager::getInstance()->doSoloBattleEnd(pSender);
+	GameManager::getInstance()->startSoloResultScene(pSender);
 }
 
 void BattleScene::InitKeyboardListener()

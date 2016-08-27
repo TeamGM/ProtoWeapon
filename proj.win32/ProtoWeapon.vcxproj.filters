@@ -79,6 +79,9 @@
     <Filter Include="src\Scenes\ResultScene\ResultSceneLayer">
       <UniqueIdentifier>{46b316db-111a-4e81-acdc-13b8827bb48d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resource\UI\ResultScene">
+      <UniqueIdentifier>{08aeeed2-904d-4e1b-ad5c-5203331817b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

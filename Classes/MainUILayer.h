@@ -25,7 +25,7 @@ public:
 	void setSelectedJob(typeGameData::ENUMPCJOB pcJob);
 	void setSelectedBoss(typeGameData::ENUMBOSS boss);
 
-	void doStartGameSelect(Ref* pSender);
+	void startSoloGame(Ref* pSender);
 
 	typeGameData::SELECTEDDATA mainSceneDataSet;
 };
