@@ -294,6 +294,15 @@
     <Image Include="..\Resources\img\UI_Stick_BG.png">
       <Filter>resource\UI\BattleScene</Filter>
     </Image>
+    <Image Include="..\Resources\img\FAILED_logo.png">
+      <Filter>resource\UI\ResultScene</Filter>
+    </Image>
+    <Image Include="..\Resources\img\result_Logo.png">
+      <Filter>resource\UI\ResultScene</Filter>
+    </Image>
+    <Image Include="..\Resources\img\succed_logo.png">
+      <Filter>resource\UI\ResultScene</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\Resources\soundEffect\SEmenuSelect.mp3">
