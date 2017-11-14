@@ -5,6 +5,7 @@
 #include "ResultScene.h"
 #include "TypeGameData.h"
 #include "simpleAudioEngine.h"
+#include "network\HttpClient.h"
 
 
 class GameManager :public cocos2d::Object
@@ -29,10 +30,10 @@ public:
 
 	//네트워크용 임시
 	/* 함수명 적절히 바꿀 것
-	void setPcJobNum(SELECTPCJOB pcJobN);
-	void setBossNum(SELECTBOSS bossN);
-	int getPcJobNum();
-	int getBossNum();
+	void setMultiPcJobNum(typeGameData::ENUMPCJOB pcJobN);
+	void setMultiBossNum(typeGameData::ENUMBOSS bossN);
+	int getMultiPcJobNum();
+	int getMultiBossNum();
 	*/
 private:
 	//외부에서 임의접근불가

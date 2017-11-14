@@ -212,6 +212,9 @@
     <ClInclude Include="..\Classes\ResultUILayer.h">
       <Filter>src\Scenes\ResultScene\ResultSceneLayer</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\roomHostPacket.h">
+      <Filter>src\Network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
@@ -315,6 +318,30 @@
       <Filter>resource\SoundBG</Filter>
     </Media>
     <Media Include="..\Resources\soundBG\Destruction.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\8bitDungeonBoss.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\BlipStream.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\GustavSting.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\KickShock.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\MistaketheGetaway.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\TakeAChance.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\TruthoftheLegend.mp3">
+      <Filter>resource\SoundBG</Filter>
+    </Media>
+    <Media Include="..\Resources\incompetch_com_music\VideoDungeonBoss.mp3">
       <Filter>resource\SoundBG</Filter>
     </Media>
   </ItemGroup>

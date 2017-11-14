@@ -182,6 +182,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ResultScene.h" />
     <ClInclude Include="..\Classes\MainUILayer.h" />
     <ClInclude Include="..\Classes\ResultUILayer.h" />
+    <ClInclude Include="..\Classes\roomHostPacket.h" />
     <ClInclude Include="..\Classes\TypeGameData.h" />
     <ClInclude Include="..\Classes\UIFire.h" />
     <ClInclude Include="..\Classes\UILayer.h" />
@@ -235,6 +236,14 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <Image Include="..\Resources\img\xmainsceneBG.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="..\Resources\incompetch_com_music\8bitDungeonBoss.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\BlipStream.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\GustavSting.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\KickShock.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\MistaketheGetaway.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\TakeAChance.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\TruthoftheLegend.mp3" />
+    <Media Include="..\Resources\incompetch_com_music\VideoDungeonBoss.mp3" />
     <Media Include="..\Resources\soundBG\Another_time.mp3" />
     <Media Include="..\Resources\soundBG\Destruction.mp3" />
     <Media Include="..\Resources\soundBG\Neo_Space.mp3" />

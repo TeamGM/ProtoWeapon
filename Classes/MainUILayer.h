@@ -19,6 +19,10 @@ public:
 
 	void initMainUI();
 	void initTitleUI(ui::PageView* pageview);
+	void initModeSelctUI(); //싱글,멀티 플레이 선택 UI
+	void initHostResgistUI(); //호스트 등록 UI
+	void initRoomUI(); //룸UI
+	void initRoomListUI(); //게스트용 룸리스트 UI
 	void initPcSelectUI(/*ui::PageView* pageview*/);
 	void initBossSelectUI(/*ui::PageView* pageview*/);
 

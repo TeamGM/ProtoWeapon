@@ -1,6 +1,5 @@
 #include "MainUILayer.h"
 
-
 bool MainUILayer::init()
 {
 	if (!Layer::init())
@@ -9,7 +8,6 @@ bool MainUILayer::init()
 	}
 
 	auto* pageview = ui::PageView::create();
-
 
 	//UI 기본위치에 생성
 	initMainUI();
@@ -35,7 +33,8 @@ void MainUILayer::initTitleUI(ui::PageView* pageview)
 	okBtnDisabled->setColor(Color3B(50, 50, 50));
 	okBtnSelected->setScale(1.1);
 
-	auto StartBtn = MenuItemSprite::create(okBtnNormal, okBtnSelected, okBtnDisabled, CC_CALLBACK_0(MainUILayer::initPcSelectUI,this));
+	auto StartBtn = MenuItemSprite::create(okBtnNormal, okBtnSelected, okBtnDisabled, 
+		CC_CALLBACK_0(MainUILayer::initPcSelectUI,this));
 	StartBtn->setPosition(Vec2(0, 0));
 
 	auto pMenu = Menu::create(StartBtn, NULL);
@@ -45,12 +44,14 @@ void MainUILayer::initTitleUI(ui::PageView* pageview)
 	this->addChild(pMenu,1);
 }
 
+void MainUILayer::initModeSelctUI()
+{
+}
+
 void MainUILayer::initPcSelectUI(/*ui::PageView* pageview*/)
 {
 	int soundID_temp = CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("soundEffect/SEmenuSelect.mp3");
 	//tabtostart 찾아서 제거
-	//auto stBtn = this->getChildByName("startBtn");
-	//stBtn->setVisible(false);
 	this->removeChildByName("startBtn");
 
 	//셀렉트보드 로드
@@ -88,9 +89,12 @@ void MainUILayer::initPcSelectUI(/*ui::PageView* pageview*/)
 	wizardSelected->setAnchorPoint(Vec2(0, 0));
 	wizardSelectedFrame->addChild(wizardSelected, 0);
 
-	auto pcJob01 = MenuItemSprite::create(swordmanNormal, swordmanSelectedFrame, swordmanDisabled, CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::SWORDMNAN));
-	auto pcJob02 = MenuItemSprite::create(archerNormal, archerSelectedFrame, archerDisabled, CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::ARCHER));
-	auto pcJob03 = MenuItemSprite::create(wizardNormal, wizardSelectedFrame, wizardDisabled, CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::WIZARD));
+	auto pcJob01 = MenuItemSprite::create(swordmanNormal, swordmanSelectedFrame, swordmanDisabled, 
+		CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::SWORDMNAN));
+	auto pcJob02 = MenuItemSprite::create(archerNormal, archerSelectedFrame, archerDisabled, 
+		CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::ARCHER));
+	auto pcJob03 = MenuItemSprite::create(wizardNormal, wizardSelectedFrame, wizardDisabled, 
+		CC_CALLBACK_0(MainUILayer::setSelectedJob, this, typeGameData::WIZARD));
 		
 	pcJob01->setPosition(Vec2(120+50, 180));
 	pcJob02->setPosition(Vec2(320, 180));
@@ -146,9 +150,12 @@ void MainUILayer::initBossSelectUI(/*ui::PageView* pageview*/)
 	radragonSelectedFrame->setScale(2.0);
 	radragonSelectedFrame->addChild(radragonSelected, 0);
 
-	auto boss01 = MenuItemSprite::create(behimothNormal, behimothSelectedFrame, behimothDisabled, CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::BEHIMOTH));
-	auto boss02 = MenuItemSprite::create(LeviathanNormal, LeviathanSelectedFrame, LeviathanDisabled, CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::LEVIATHAN));
-	auto boss03 = MenuItemSprite::create(radragonNormal, radragonSelectedFrame, radragonDisabled, CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::RADRAGON));
+	auto boss01 = MenuItemSprite::create(behimothNormal, behimothSelectedFrame, behimothDisabled, 
+		CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::BEHIMOTH));
+	auto boss02 = MenuItemSprite::create(LeviathanNormal, LeviathanSelectedFrame, LeviathanDisabled, 
+		CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::LEVIATHAN));
+	auto boss03 = MenuItemSprite::create(radragonNormal, radragonSelectedFrame, radragonDisabled, 
+		CC_CALLBACK_0(MainUILayer::setSelectedBoss, this,typeGameData::RADRAGON));
 
 	boss01->setPosition(Vec2(320, 180));
 	boss02->setPosition(Vec2(470, 180));

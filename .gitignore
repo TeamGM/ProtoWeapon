@@ -1,6 +1,9 @@
 #디버그폴더
 Debug.win32/
 
+#cocos2d 라이브러리 폴더
+cocos2d/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

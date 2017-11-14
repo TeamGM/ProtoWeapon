@@ -41,6 +41,7 @@ int GameManager::getSoloBossNum()
 
 void GameManager::startSoloBattleScene(Ref* pSender)
 {
+	//BGM 프리소스로 교체할 것
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Destruction.mp3");
 	auto pScene = BattleScene::createScene();
@@ -49,6 +50,7 @@ void GameManager::startSoloBattleScene(Ref* pSender)
 
 void GameManager::startSoloResultScene(Ref* pSender)
 {
+	//BGM 프리소스로 교체할 것
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("soundBG/Another_time.mp3");
 	auto pScene = ResultScene::createScene();
@@ -57,6 +59,8 @@ void GameManager::startSoloResultScene(Ref* pSender)
 
 void GameManager::startSoloMainScene(Ref* pSender)
 {
+	//mainScene BGM은 mainUILayer.cpp 에 있음
+	//BGM 프리소스로 교체할 것
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	auto pScene = MainScene::createScene();
 	Director::getInstance()->replaceScene(pScene);
